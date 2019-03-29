@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Island_large.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Plank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Tower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Bridge.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Water.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+
+[node name="Root" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.789784, -0.407571, 0.458396, 0.165604, 0.861252, 0.480437, -0.590607, -0.303529, 0.747699, 49.793, 46.2985, 40.3221 )
+light_color = Color( 0.980392, 0.858824, 0.298039, 1 )
+shadow_enabled = true
+
+[node name="Island_Large" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.67846, 3.28909, 2.13243 )
+
+[node name="Plank" type="Spatial" parent="Island_Large"]
+editor/display_folded = true
+
+[node name="Plank1" parent="Island_Large/Plank" instance=ExtResource( 2 )]
+transform = Transform( 0.257363, 0.966286, -0.00752297, -0.965783, 0.257472, 0.0311688, 0.0320549, -0.000756137, 0.999486, -0.853059, 2.50334, 6.89849 )
+
+[node name="Plank2" parent="Island_Large/Plank" instance=ExtResource( 2 )]
+transform = Transform( 0.0505585, 0.998721, -0.000865915, -0.998207, 0.0505602, 0.0320522, 0.0320549, -0.000756146, 0.999486, 0.510923, 2.50334, 6.89849 )
+
+[node name="Tower" parent="Island_Large" instance=ExtResource( 3 )]
+transform = Transform( 0.327512, -1.01418e-14, 0.944847, 0.944847, -4.37114e-08, -0.327512, 4.13006e-08, 1, -1.4316e-08, -15.0475, 4.554, 10.3539 )
+
+[node name="Bridge" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.973082, -0.229636, 0.0194702, 0.0204703, -0.00197347, 0.999789, -0.229549, 0.973275, 0.00662106, 10.9477, 3.56225, 4.21754 )
+
+[node name="Water" parent="." instance=ExtResource( 5 )]
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.0541404, 0, -0.192533, 0, 0.2, 0, 0.192533, 0, -0.0541404, 13.2177, 7.53127, 4.39055 )
+

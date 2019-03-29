@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Penguin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/32-32_white.png" type="Texture" id=3]
+[ext_resource path="res://assets/Titillium-Regular.otf" type="DynamicFontData" id=4]
+
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.2
+height = 2.9
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.8, 0.2, 0.8 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.6, 0.6, 0.6, 0.392157 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 42
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="Body_CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 2.97359, 0.232321 )
+shape = SubResource( 1 )
+
+[node name="Feet_CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.232 )
+shape = SubResource( 2 )
+
+[node name="Penguin" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, -0.29921, 0.954187, 0, -0.954187, -0.29921, 0, 3.62329, -1.05628 )
+
+[node name="Rotation_Helper" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.50082, 1.3855 )
+
+[node name="Camera" type="Camera" parent="Rotation_Helper"]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, -0.307539, -0.0646362 )
+current = true
+fov = 90.0
+far = 180.0
+
+[node name="Flashlight" type="SpotLight" parent="Rotation_Helper"]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.307539, -0.0646362 )
+visible = false
+light_color = Color( 1, 0.915375, 0.769531, 1 )
+light_energy = 0.8
+spot_range = 30.0
+spot_attenuation = 2.0
+spot_angle = 50.0
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Crosshair" type="Control" parent="HUD"]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.705882 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = -21.0
+margin_right = 21.0
+margin_bottom = 21.0
+
+[node name="Bottom_IMG" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.5
+margin_top = 4.5
+margin_right = 2.5
+margin_bottom = 20.5
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Top_IMG" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.5
+margin_top = -20.5
+margin_right = 2.5
+margin_bottom = -4.5
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Left_IMG" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.5
+margin_top = -2.5
+margin_right = 0.5
+margin_bottom = 12.5
+rect_rotation = 90.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Right_IMG" type="TextureRect" parent="HUD/Crosshair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 19.5
+margin_top = -2.5
+margin_right = 24.5
+margin_bottom = 12.5
+rect_rotation = 90.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Health_Label" type="Label" parent="HUD"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+anchor_bottom = 1.0
+margin_left = 0.309998
+margin_top = 556.489
+margin_right = 362.31
+margin_bottom = -0.51062
+grow_horizontal = 2
+grow_vertical = 2
+custom_styles/normal = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color = Color( 0.909804, 0.811765, 0, 1 )
+text = "  HEALTH            100  "
+valign = 1
+
