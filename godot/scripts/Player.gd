@@ -53,15 +53,16 @@ func _input(event):
 		var cam_xform = camera.get_global_transform()
 		if event.button_index == BUTTON_WHEEL_UP or event.button_index == BUTTON_WHEEL_DOWN:
 			if event.button_index == BUTTON_WHEEL_UP and zoom > 1:
-					camera.translate_object_local(Vector3(-1, -1, -2))
-					var pos = $HUD/Crosshair.get_position()
-					$HUD/Crosshair.set_position(pos)
+					camera.translate_object_local(Vector3(0, -1, -2))
 					zoom -= 1
+					if zoom == 1:
+						$Model.hide()
 			elif event.button_index == BUTTON_WHEEL_DOWN and zoom < MAX_ZOOM:
-					camera.translate_object_local(Vector3(1, 1, 2))
-					var pos = $HUD/Crosshair.get_position()
-					$HUD/Crosshair.set_position(pos)
+					camera.translate_object_local(Vector3(0, 1, 2))
 					zoom += 1
+					if zoom > 1:
+						$Model.show()
+					
 
 
 
@@ -69,6 +70,8 @@ func process_input(delta):
 	walking()
 	jumping()
 	sprinting()
+	
+	attacking()
 	
 	toggle_flashlight()
 
@@ -113,6 +116,11 @@ func sprinting():
 		accel = WALKING_ACCEL
 
 
+func attacking():
+	if Input.is_action_pressed("mouse_left"):
+		$Dagger/AnimationPlayer.play("Hit")
+
+
 func toggle_flashlight():
 	if Input.is_action_just_pressed("flashlight"):
 		if flashlight.is_visible_in_tree():
@@ -126,6 +134,7 @@ func toggle_cursor_focus():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		$HUD/Popup.popup_centered(Vector2(0, 0))
 
 
 func process_movement(delta):

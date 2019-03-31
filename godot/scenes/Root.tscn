@@ -1,11 +1,38 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/Island_large.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Plank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Tower.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Bridge.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Water.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Chest.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Plank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Tree_Birch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Tree_Pine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Tree_Pine_2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Tree_Pine_3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Tree_Maple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Tree_Dead.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Tree_Trunk.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Bush.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Stone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Stone_Mossy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/Tower.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Broken_Arch.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Ruins_Wall.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/Broken_Column.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/Path_Stone_A.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/Path_Stone_B.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/Flower.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/Mushroom_Blue.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/Mushroom_Red.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Mushroom_Yellow.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/Grass_Patch_Edge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/Bridge.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/Island_Small.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/Barrel.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/Grass_Patch_A.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/Grass_Patch_B.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/Boat.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/Ocean.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/Cloud.tscn" type="PackedScene" id=32]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=33]
 
 [node name="Root" type="Spatial"]
 
@@ -13,27 +40,464 @@
 transform = Transform( 0.789784, -0.407571, 0.458396, 0.165604, 0.861252, 0.480437, -0.590607, -0.303529, 0.747699, 49.793, 46.2985, 40.3221 )
 light_color = Color( 0.980392, 0.858824, 0.298039, 1 )
 shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Island_Large" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.67846, 3.28909, 2.13243 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.22869, 3.42292, 2.47158 )
+
+[node name="Chest" parent="Island_Large" instance=ExtResource( 2 )]
+transform = Transform( -0.869502, -0.487572, -0.0789944, 0.484836, -0.873055, 0.05205, -0.0943446, 0.00695826, 0.995515, 4.50234, -8.28701, 2.48509 )
+
+[node name="Chest2" parent="Island_Large" instance=ExtResource( 2 )]
+transform = Transform( 0.799535, 0.600619, 2.62539e-08, -0.600619, 0.799535, -8.76258e-09, -2.62539e-08, -8.76259e-09, 1, -13.2954, 6.00671, 22.2416 )
+
+[node name="Chest3" parent="Island_Large" instance=ExtResource( 2 )]
+transform = Transform( 0.608553, -0.793513, -3.46856e-08, 0.793513, 0.608553, -1.71107e-08, 3.46856e-08, -1.71107e-08, 1, 0.288477, 2.75475, 3.77145 )
+
+[node name="Chest4" parent="Island_Large" instance=ExtResource( 2 )]
+transform = Transform( -0.874154, -0.485449, -0.0139051, 0.485496, -0.874239, -1.32747e-10, -0.0121564, -0.00675089, 0.999903, -14.1219, -9.58876, 10.8514 )
 
 [node name="Plank" type="Spatial" parent="Island_Large"]
 editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Plank1" parent="Island_Large/Plank" instance=ExtResource( 2 )]
+[node name="Plank1" parent="Island_Large/Plank" instance=ExtResource( 3 )]
 transform = Transform( 0.257363, 0.966286, -0.00752297, -0.965783, 0.257472, 0.0311688, 0.0320549, -0.000756137, 0.999486, -0.853059, 2.50334, 6.89849 )
 
-[node name="Plank2" parent="Island_Large/Plank" instance=ExtResource( 2 )]
+[node name="Plank2" parent="Island_Large/Plank" instance=ExtResource( 3 )]
 transform = Transform( 0.0505585, 0.998721, -0.000865915, -0.998207, 0.0505602, 0.0320522, 0.0320549, -0.000756146, 0.999486, 0.510923, 2.50334, 6.89849 )
 
-[node name="Tower" parent="Island_Large" instance=ExtResource( 3 )]
+[node name="Trees" type="Spatial" parent="Island_Large"]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tree_Birch" parent="Island_Large/Trees" instance=ExtResource( 4 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -12.7472, -1.68582, 10.5948 )
+
+[node name="Tree_Birch2" parent="Island_Large/Trees" instance=ExtResource( 4 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -9.0251, -11.4048, 11.1329 )
+
+[node name="Tree_Pine" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24058, -11.207, 2.98511 )
+
+[node name="Tree_Pine18" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.946515, -10.8832, 7.94626 )
+
+[node name="Tree_Pine20" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.70902, -7.52675, 10.7137 )
+
+[node name="Tree_Pine22" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -15.7495, -2.97432, 10.5513 )
+
+[node name="Tree_Pine9" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3899, 2.27744, 3.1783 )
+
+[node name="Tree_Pine10" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 9.66788, 7.72214, 4.67924 )
+
+[node name="Tree_Pine12" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.7199, 12.7234, 6.27823 )
+
+[node name="Tree_Pine3" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93952, 11.3952, 8.18145 )
+
+[node name="Tree_Pine14" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94692, 13.6211, 7.48934 )
+
+[node name="Tree_Pine4" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.94565, 11.9301, 8.00968 )
+
+[node name="Tree_Pine5" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.65355, 10.0922, 7.55239 )
+
+[node name="Tree_Pine2" parent="Island_Large/Trees" instance=ExtResource( 5 )]
+transform = Transform( 0.368649, -0.709999, -3.1035e-08, 0.709999, 0.368649, -1.8855e-08, 3.1035e-08, -1.8855e-08, 0.8, 8.49828, -5.75897, 2.0636 )
+
+[node name="Tree_Pine6" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.07223, -4.26255, 2.82827 )
+
+[node name="Tree_Pine16" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.47166, -10.9797, 8.18592 )
+
+[node name="Tree_Pine21" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -15.1339, -11.4242, 11.0132 )
+
+[node name="Tree_Pine17" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.4497, -11.2685, 8.06791 )
+
+[node name="Tree_Pine8" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.91985, 5.85697, 4.61544 )
+
+[node name="Tree_Pine7" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.25987, -0.483175, 3.62766 )
+
+[node name="Tree_Pine15" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.306189, 14.6442, 7.12757 )
+
+[node name="Tree_Pine19" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.50742, 6.92942, 10.2298 )
+
+[node name="Tree_Pine11" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.89057, 5.28238, 3.73057 )
+
+[node name="Tree_Pine13" parent="Island_Large/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 4.08302, 14.7347, 6.72557 )
+
+[node name="Tree_Pine_3" parent="Island_Large/Trees" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82396, -2.59969, 4.19188 )
+
+[node name="Tree_Pine_5" parent="Island_Large/Trees" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31213, 12.7189, 7.88341 )
+
+[node name="Tree_Pine_6" parent="Island_Large/Trees" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50831, 7.31582, 10.2628 )
+
+[node name="Tree_Pine_4" parent="Island_Large/Trees" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72644, 11.2465, 5.82638 )
+
+[node name="Tree_Maple" parent="Island_Large/Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448518, -12.5989, 3.45832 )
+
+[node name="Tree_Maple3" parent="Island_Large/Trees" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1086, -12.1451, 10.8065 )
+
+[node name="Tree_Maple2" parent="Island_Large/Trees" instance=ExtResource( 8 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.81818, 8.72416, 5.49909 )
+
+[node name="Tree_Dead" parent="Island_Large/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56785, 9.76588, 5.13352 )
+
+[node name="Tree_Dead2" parent="Island_Large/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51185, -9.98819, 10.9613 )
+
+[node name="Tree_Trunk" parent="Island_Large/Trees" instance=ExtResource( 10 )]
+transform = Transform( 0.523838, -1.40492, -0.042399, 1.40144, 0.525526, -0.0989003, 0.107486, -0.00507472, 1.49614, -3.85218, 9.49357, 7.10851 )
+
+[node name="Tree_Trunk2" parent="Island_Large/Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.780685, -1.25265, -0.267212, 1.26237, -0.805441, 0.0876152, -0.216648, -0.179281, 1.47341, -11.0017, -8.44851, 11.2535 )
+
+[node name="Bush" parent="Island_Large/Trees" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4505, -11.474, 11.2486 )
+
+[node name="Bush2" parent="Island_Large/Trees" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5943, -9.11067, 11.3721 )
+
+[node name="Stones" type="Spatial" parent="Island_Large"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stone" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, 0.999999, 0, -0.999999, -4.37113e-08, 10.0755, -3.74503, -0.0321331 )
+
+[node name="Stone2" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( 1.5, 0, 0, 0, 1.40227, -0.532573, 0, 0.532573, 1.40227, 1.41219, -7.46862, 3.44332 )
+
+[node name="Stone3" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( 0.829795, -0.558067, -4.87878e-08, 2.43939e-08, -5.11513e-08, 0.999999, -0.558067, -0.829795, -2.88316e-08, -2.02352, 1.9835, 4.40345 )
+
+[node name="Stone4" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.326008, 0.502989, 0.0268421, -0.503482, -0.326352, 0.000455528, 0.0149819, -0.0222767, 0.599399, 2.48921, 4.16176, 5.27885 )
+
+[node name="Stone7" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.856965, 0.00969649, 0.515283, -0.478671, 0.355582, -0.802767, -0.191009, -0.934595, -0.30008, -3.56319, 6.0566, 6.96931 )
+
+[node name="Stone9" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( -2.5709, 0.0290895, 1.54585, -1.43601, 1.06675, -2.4083, -0.573028, -2.80378, -0.90024, 14.0948, 14.9217, -0.47879 )
+
+[node name="Stone10" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( 0.53027, -1.62619, -1.0365, -0.957342, 0.711164, -1.60553, 1.67401, 0.921825, -0.589855, 22.38, 14.9217, -1.20262 )
+
+[node name="Stone8" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.428483, 0.00484829, 0.257642, -0.206104, -0.306514, -0.337002, 0.154674, -0.395001, 0.264671, -1.77055, -1.26895, 7.2774 )
+
+[node name="Stone5" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.27561, 0.226363, 0.181105, -0.193754, -0.329715, 0.117251, 0.215635, -0.00693553, 0.336828, 2.57007, 3.01965, 4.30646 )
+
+[node name="Stone6" parent="Island_Large/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.27561, 0.226363, 0.181105, 0.195195, -0.0398472, 0.346859, 0.214331, 0.327372, -0.0830066, 0.927635, 0.523236, 4.30646 )
+
+[node name="Stone_Mossy" parent="Island_Large/Stones" instance=ExtResource( 13 )]
+transform = Transform( 1.8, 0, 0, 0, 1.68532, -0.632208, 0, 0.632208, 1.68532, -2.24672, -6.00506, 7.63735 )
+
+[node name="Stone_Mossy2" parent="Island_Large/Stones" instance=ExtResource( 13 )]
+transform = Transform( 2, 0, 0, 0, 1.99036, 0.196094, 0, -0.196094, 1.99036, -2.24672, -5.18011, 7.78085 )
+
+[node name="Buildings" type="Spatial" parent="Island_Large"]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tower" parent="Island_Large/Buildings" instance=ExtResource( 14 )]
 transform = Transform( 0.327512, -1.01418e-14, 0.944847, 0.944847, -4.37114e-08, -0.327512, 4.13006e-08, 1, -1.4316e-08, -15.0475, 4.554, 10.3539 )
 
-[node name="Bridge" parent="." instance=ExtResource( 4 )]
+[node name="Broken_Arch" parent="Island_Large/Buildings" instance=ExtResource( 15 )]
+transform = Transform( -0.863434, -0.504462, 2.20507e-08, 0.504462, -0.863434, -5.9695e-09, 2.20507e-08, 5.9695e-09, 1, 6.87355, -7.66904, 2.49043 )
+
+[node name="Ruins_Wall" parent="Island_Large/Buildings" instance=ExtResource( 16 )]
+transform = Transform( -0.537631, 0.842747, 0.0270241, -0.824041, -0.531947, 0.194904, 0.17863, 0.0825174, 0.98045, 6.55023, -9.22166, 2.52858 )
+
+[node name="Ruins_Wall3" parent="Island_Large/Buildings" instance=ExtResource( 16 )]
+transform = Transform( 0.0685391, 0.997404, 0.0220745, -0.997536, 0.0681832, 0.0164926, 0.0149447, -0.0231505, 0.99962, -19.7551, -6.74166, 10.4602 )
+
+[node name="Ruins_Wall2" parent="Island_Large/Buildings" instance=ExtResource( 16 )]
+transform = Transform( -0.127744, -0.985322, -0.113238, 0.9917, -0.128571, 0, -0.0145591, -0.112298, 0.993568, 10.7584, 5.27718, 3.53033 )
+
+[node name="Broken_Column" parent="Island_Large/Buildings" instance=ExtResource( 17 )]
+transform = Transform( 0.881531, 0.472125, 2.06372e-08, -0.472125, 0.881531, -5.17842e-09, -2.06372e-08, -5.17842e-09, 1, 3.83197, -5.98265, 2.37527 )
+
+[node name="Broken_Column2" parent="Island_Large/Buildings" instance=ExtResource( 17 )]
+transform = Transform( 0.881531, 0.472125, 2.06372e-08, -0.472125, 0.881531, -5.17842e-09, -2.06372e-08, -5.17842e-09, 1, 5.86531, 13.7141, 6.53197 )
+
+[node name="Broken_Column3" parent="Island_Large/Buildings" instance=ExtResource( 17 )]
+transform = Transform( 0.918635, 0.395107, 1.72707e-08, -0.395107, 0.918635, -3.55658e-09, -1.72707e-08, -3.55658e-09, 1, 1.88766, 15.2715, 6.38348 )
+
+[node name="Track" type="Spatial" parent="Island_Large"]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Path_Stone_A" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.993844, -4.8428e-09, 0.11079, 0.0165511, 0.988778, -0.148471, -0.109547, 0.149391, 0.982691, 8.708, -0.930421, 2.41752 )
+
+[node name="Path_Stone_A7" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.978519, 0.0177164, 0.205396, 0.0201631, 0.9833, -0.180873, -0.20517, 0.181129, 0.96182, 2.66698, 10.5496, 5.92706 )
+
+[node name="Path_Stone_A2" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.999643, 0.0175004, -0.0201965, -0.0146897, 0.991171, 0.131774, 0.0223243, -0.13143, 0.991074, -0.551407, 7.29708, 6.38258 )
+
+[node name="Path_Stone_A3" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.997193, -0.00146448, 0.0748667, -0.0132222, 0.980655, 0.195297, -0.0737044, -0.195739, 0.977882, -0.0733583, -2.8345, 7.08859 )
+
+[node name="Path_Stone_A8" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.999258, -0.0379945, 0.0063163, 0.0368525, 0.99083, 0.12999, -0.0111972, -0.129661, 0.991495, -3.3675, -7.83496, 7.99773 )
+
+[node name="Path_Stone_A4" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.949094, 0.0815686, 0.304248, 0.0543489, 0.908998, -0.413242, -0.310268, 0.408741, 0.858292, -4.22755, -3.35922, 8.8317 )
+
+[node name="Path_Stone_A6" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.99634, 0.0848128, 0.0106506, -0.0847893, 0.996396, -0.00263457, -0.0108357, 0.00172183, 0.99994, -5.49832, 1.65927, 10.2956 )
+
+[node name="Path_Stone_A5" parent="Island_Large/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.692513, 0.0326416, 0.096748, -0.0154802, 0.689164, -0.12171, -0.100926, 0.118269, 0.682515, -3.59353, -0.386482, 9.88985 )
+
+[node name="Path_Stone_B" parent="Island_Large/Track" instance=ExtResource( 19 )]
+transform = Transform( 0.951578, 0.0638151, 0.300711, 0.0370531, 0.947273, -0.318277, -0.305166, 0.314007, 0.89904, 7.03902, 1.52983, 3.46638 )
+
+[node name="Path_Stone_B2" parent="Island_Large/Track" instance=ExtResource( 19 )]
+transform = Transform( 0.999483, -0.0175027, 0.0269814, 0.0209983, 0.990588, -0.13526, -0.02436, 0.135756, 0.990443, 6.1415, 4.95468, 4.268 )
+
+[node name="Flower" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.995168, 0.0177142, 0.0965797, 4.29206e-09, 0.983592, -0.180406, -0.0981908, 0.179534, 0.978839, 5.62285, -2.49542, 2.72051 )
+
+[node name="Flower2" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.955424, 0.0532627, 0.290394, 1.29053e-08, 0.983592, -0.180406, -0.295238, 0.172364, 0.939747, 5.62285, -1.47391, 3.00556 )
+
+[node name="Flower3" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, -9.25319e-10, 0.983592, -0.180406, 0.0211688, 0.180365, 0.983372, 5.02413, 3.47633, 4.04891 )
+
+[node name="Flower7" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, -9.25319e-10, 0.983592, -0.180406, 0.0211688, 0.180365, 0.983372, -3.68001, 3.22988, 10.4091 )
+
+[node name="Flower8" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, 0.0036017, 0.999938, -0.0104626, 0.0208601, 0.0103848, 0.999729, -10.3697, -4.17569, 10.5873 )
+
+[node name="Flower9" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, 0.0036017, 0.999938, -0.0104626, 0.0208601, 0.0103848, 0.999729, -13.8505, -4.17569, 10.416 )
+
+[node name="Flower10" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, 0.0036017, 0.999938, -0.0104626, 0.0208601, 0.0103848, 0.999729, -13.8505, -2.64001, 10.416 )
+
+[node name="Flower6" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.997034, 0.0138837, 0.0756957, 0.00905032, 0.955614, -0.294481, -0.0764244, 0.294293, 0.952655, -0.887847, 10.585, 6.75233 )
+
+[node name="Flower4" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, -0.005571, 0.901453, -0.43284, 0.0204226, 0.432859, 0.90123, 5.79301, 6.2874, 4.75121 )
+
+[node name="Flower5" parent="Island_Large/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.999776, -0.00381897, -0.0208215, -0.005571, 0.901453, -0.43284, 0.0204226, 0.432859, 0.90123, 5.79301, 11.2766, 6.2228 )
+
+[node name="Mushroom_Blue" parent="Island_Large/Track" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8156, -2.27282, 3.08904 )
+
+[node name="Mushroom_Blue2" parent="Island_Large/Track" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42436, 11.4862, 6.28001 )
+
+[node name="Mushroom_Blue3" parent="Island_Large/Track" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65496, 11.1392, 7.44886 )
+
+[node name="Mushroom_Blue4" parent="Island_Large/Track" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0928, -0.430475, 10.4694 )
+
+[node name="Mushroom_Red" parent="Island_Large/Track" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57273, 4.54372, 4.38705 )
+
+[node name="Mushroom_Red2" parent="Island_Large/Track" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06543, 11.676, 6.38407 )
+
+[node name="Mushroom_Red3" parent="Island_Large/Track" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30312, 10.0645, 7.29702 )
+
+[node name="Mushroom_Red4" parent="Island_Large/Track" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52449, 4.46526, 10.3108 )
+
+[node name="Mushroom_Yellow" parent="Island_Large/Track" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27688, 7.32457, 5.19238 )
+
+[node name="Mushroom_Yellow3" parent="Island_Large/Track" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43806, 11.1367, 7.59519 )
+
+[node name="Mushroom_Yellow2" parent="Island_Large/Track" instance=ExtResource( 23 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.27688, 7.71106, 5.19237 )
+
+[node name="Grass_Patch_Edge" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.0510352, 0.998697, 4.36544e-08, -0.998697, 0.0510352, -4.14806e-08, -4.36544e-08, -4.14806e-08, 1, 1.41619, -5.08672, 7.41686 )
+
+[node name="Grass_Patch_Edge2" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.182706, 0.983168, 4.29756e-08, -0.983168, -0.182706, -5.16977e-08, -4.29756e-08, -5.16977e-08, 1, -6.16931, -8.76777, 8.70912 )
+
+[node name="Grass_Patch_Edge3" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.0726178, 0.997185, 0.0186671, -0.971025, 0.0749606, -0.226918, -0.227678, -0.00164797, 0.973735, -7.69661, -4.06499, 9.05152 )
+
+[node name="Grass_Patch_Edge17" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.989693, -0.0273727, 0.140564, 0.026526, 0.999617, 0.00789402, -0.140727, -0.00408404, 0.99004, -12.6984, -11.1145, 10.8588 )
+
+[node name="Grass_Patch_Edge18" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.731106, 0.673868, 0.106701, -0.667593, 0.73884, -0.0918454, -0.140727, -0.00408405, 0.99004, -16.9651, -7.25212, 10.8588 )
+
+[node name="Grass_Patch_Edge4" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.194318, 0.979807, 0.0470935, -0.954151, 0.199936, -0.222761, -0.227678, -0.00164796, 0.973735, -2.37325, 2.79532, 10.3089 )
+
+[node name="Grass_Patch_Edge5" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.424284, 0.900245, -0.0976823, -0.876439, -0.43538, -0.205665, -0.227678, -0.00164799, 0.973735, -8.6781, 1.24639, 10.1368 )
+
+[node name="Grass_Patch_Edge6" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.49522, 0.868755, -0.00474434, -0.867754, 0.494898, 0.0455882, 0.041953, -0.0184592, 0.998949, -10.9284, 6.73589, 10.5982 )
+
+[node name="Grass_Patch_Edge7" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.757166, 0.64263, -0.117161, -0.65314, 0.741935, -0.151461, -0.0104077, 0.191203, 0.981495, -12.1549, 8.23542, 10.561 )
+
+[node name="Grass_Patch_Edge8" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.951215, 0.306835, -0.0322944, -0.308399, 0.948641, -0.0705041, 0.00900275, 0.0770241, 0.996989, -14.1628, 9.11808, 10.6083 )
+
+[node name="Grass_Patch_Edge9" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.976605, -0.211105, -0.0409622, 0.213065, 0.975681, 0.0514698, 0.0291006, -0.0589933, 0.997834, -16.247, 9.1687, 10.6862 )
+
+[node name="Grass_Patch_Edge10" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.788983, -0.61307, -0.0406435, 0.609884, 0.789468, -0.0691536, 0.0744828, 0.0297732, 0.996778, -18.1463, 8.14306, 10.6528 )
+
+[node name="Grass_Patch_Edge11" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( 0.383124, -0.906181, 0.179031, 0.923435, 0.371132, -0.0976195, 0.0220168, 0.202724, 0.978988, -19.4383, 6.15732, 10.6247 )
+
+[node name="Grass_Patch_Edge12" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.160897, -0.965743, 0.2036, 0.986726, -0.161998, 0.0113551, 0.0220168, 0.202724, 0.978988, -19.6246, 3.91256, 10.6247 )
+
+[node name="Grass_Patch_Edge13" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.567835, -0.803413, 0.179137, 0.822848, -0.559848, 0.0974252, 0.0220168, 0.202724, 0.978988, -18.7777, 1.70317, 10.4811 )
+
+[node name="Grass_Patch_Edge14" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.786964, -0.600429, 0.142032, 0.616606, -0.773555, 0.146317, 0.0220168, 0.202724, 0.978988, -16.9895, 0.311439, 10.4639 )
+
+[node name="Grass_Patch_Edge15" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.99964, -0.0105265, 0.0246609, 0.0153047, -0.979179, 0.202419, 0.0220167, 0.202724, 0.978988, -14.8793, -0.01863, 10.4639 )
+
+[node name="Grass_Patch_Edge16" parent="Island_Large/Track" instance=ExtResource( 24 )]
+transform = Transform( -0.89576, 0.438875, -0.070735, -0.443993, -0.875381, 0.191254, 0.0220167, 0.202724, 0.978988, -13.3134, 0.383513, 10.2974 )
+
+[node name="Bridge" parent="." instance=ExtResource( 25 )]
 transform = Transform( -0.973082, -0.229636, 0.0194702, 0.0204703, -0.00197347, 0.999789, -0.229549, 0.973275, 0.00662106, 10.9477, 3.56225, 4.21754 )
 
-[node name="Water" parent="." instance=ExtResource( 5 )]
+[node name="Island_Small" parent="." instance=ExtResource( 26 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.9006, 3.55086, 5.14451 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.0541404, 0, -0.192533, 0, 0.2, 0, 0.192533, 0, -0.0541404, 13.2177, 7.53127, 4.39055 )
+[node name="Tree_Pine" parent="Island_Small" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.883762, 2.62337, 1.93617 )
+
+[node name="Barrel" parent="Island_Small" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.735083, 1.32566, 1.68416 )
+
+[node name="Barrel2" parent="Island_Small" instance=ExtResource( 27 )]
+transform = Transform( 0.24292, -1.03389e-14, 0.970046, 0.970046, -4.37114e-08, -0.24292, 4.24021e-08, 1, -1.06184e-08, 0.615591, 2.94091, 2.24115 )
+
+[node name="Tree_Trunk" parent="Island_Small" instance=ExtResource( 10 )]
+transform = Transform( 0.400622, 0.909326, -0.112372, -0.908204, 0.377899, -0.179884, -0.121108, 0.174122, 0.977248, 3.26678, 1.32207, 1.53829 )
+
+[node name="Stones" type="Spatial" parent="Island_Small"]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stone" parent="Island_Small/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.0164066, -0.186077, 0.0714574, 0.0890424, 0.0573054, 0.169669, -0.178332, 0.0457321, 0.0781428, -4.23097, -8.0444, 1.05596 )
+
+[node name="Stone2" parent="Island_Small/Stones" instance=ExtResource( 12 )]
+transform = Transform( 0.140701, 0.0930901, 0.248068, 0.258861, 0.0116166, -0.151182, -0.0565175, 0.284955, -0.0748764, -0.803022, -4.26336, 1.39513 )
+
+[node name="Stone3" parent="Island_Small/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.412556, -0.540874, -0.421014, 0.616451, -0.507619, 0.0480681, -0.299642, -0.29963, 0.678555, -1.81556, -4.26336, 0.00531316 )
+
+[node name="Stone4" parent="Island_Small/Stones" instance=ExtResource( 12 )]
+transform = Transform( -0.412556, -0.540874, -0.421014, 0.616451, -0.507619, 0.0480681, -0.299642, -0.29963, 0.678555, 4.59577, -1.56973, -0.186104 )
+
+[node name="Track" type="Spatial" parent="Island_Small"]
+editor/display_folded = true
+
+[node name="Grass_Patch_A" parent="Island_Small/Track" instance=ExtResource( 28 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.60427, -2.20458, 1.57502 )
+
+[node name="Path_Stone_A" parent="Island_Small/Track" instance=ExtResource( 18 )]
+transform = Transform( 0.599687, -0.00351489, -0.00635561, -8.47481e-10, 0.590058, -0.0362582, 0.0193881, 0.108718, 0.196583, 1.84262, -3.83093, 1.37204 )
+
+[node name="Path_Stone_B" parent="Island_Small/Track" instance=ExtResource( 19 )]
+transform = Transform( 0.99678, -3.50486e-09, 0.0160364, 3.50486e-09, 1, 2.81473e-11, -0.0801818, 1.40737e-10, 0.199356, -0.772598, -1.0189, 2.02291 )
+
+[node name="Grass_Patch_b" parent="Island_Small/Track" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 0.977026, 0.213119, 0, -0.213119, 0.977026, -13.4024, -3.0071, 1.98191 )
+
+[node name="Grass_Patch_b2" parent="Island_Small/Track" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 0.999954, -0.00951665, 0, 0.00951665, 0.999954, -11.7192, 12.3055, 5.0488 )
+
+[node name="Grass_Patch_b3" parent="Island_Small/Track" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 0.999954, -0.00951665, 0, 0.00951665, 0.999954, -20.8642, 2.79636, 6.79691 )
+
+[node name="Flower" parent="Island_Small/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.998322, -2.53123e-09, 0.0579078, 0.0148742, 0.966449, -0.256428, -0.0559649, 0.256859, 0.964827, 0.6052, -4.80656, 1.19928 )
+
+[node name="Flower2" parent="Island_Small/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.994948, -4.3882e-09, 0.10039, 4.3882e-09, 1, 2.20822e-10, -0.10039, 2.20822e-10, 0.994948, 0.456091, 0.254604, 1.69844 )
+
+[node name="Flower3" parent="Island_Small/Track" instance=ExtResource( 20 )]
+transform = Transform( 0.963594, -1.16872e-08, 0.267371, 1.16871e-08, 1, 1.59137e-09, -0.267371, 1.59137e-09, 0.963594, 3.15688, -0.455487, 1.62639 )
+
+[node name="Boat" parent="Island_Small" instance=ExtResource( 30 )]
+transform = Transform( -0.534754, 0, 0.845008, 0.845008, -4.37114e-08, 0.534754, 3.69365e-08, 1, 2.33748e-08, 1.82013, -8.46259, -0.0119102 )
+
+[node name="Ocean" parent="." instance=ExtResource( 31 )]
+
+[node name="Ocean2" parent="." instance=ExtResource( 31 )]
+
+[node name="Clouds" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Cloud" parent="Clouds" instance=ExtResource( 32 )]
+transform = Transform( 0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, -36.9013, 34.9518, 24.3603 )
+
+[node name="Cloud2" parent="Clouds" instance=ExtResource( 32 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -18.3688, 47.5494, -16.2732 )
+
+[node name="Cloud3" parent="Clouds" instance=ExtResource( 32 )]
+transform = Transform( 1.29991, -3.30465e-10, 0.0151611, -0.0151611, -5.66905e-08, 1.29991, 3.30465e-10, -1.3, -5.66905e-08, 9.36852, 33.8814, 9.59268 )
+
+[node name="Player" parent="." instance=ExtResource( 33 )]
+transform = Transform( -0.0541404, 0, -0.192533, 0, 0.2, 0, 0.192533, 0, -0.0541404, 13.2177, 6.21476, 4.39055 )
 
