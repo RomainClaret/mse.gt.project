@@ -27,12 +27,16 @@ var flashlight
 const MAX_ZOOM = 6
 var zoom = 1
 
+export var anim_speed = 10
+
+
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$"Scene Root/AnimationPlayer".playback_speed = anim_speed
 
 
 func _physics_process(delta):
@@ -56,12 +60,12 @@ func _input(event):
 					camera.translate_object_local(Vector3(0, -1, -2))
 					zoom -= 1
 					if zoom == 1:
-						$Model.hide()
+						$"Scene Root".hide()
 			elif event.button_index == BUTTON_WHEEL_DOWN and zoom < MAX_ZOOM:
 					camera.translate_object_local(Vector3(0, 1, 2))
 					zoom += 1
 					if zoom > 1:
-						$Model.show()
+						$"Scene Root".show()
 					
 
 
@@ -88,12 +92,16 @@ func walking():
 
 	if Input.is_action_pressed("ui_up"):
 		input_movement_vector.y += 1
+		$"Scene Root/AnimationPlayer".play("Walking")
 	if Input.is_action_pressed("ui_down"):
 		input_movement_vector.y -= 1
+		$"Scene Root/AnimationPlayer".play("Walking")
 	if Input.is_action_pressed("ui_left"):
 		input_movement_vector.x -= 1
+		$"Scene Root/AnimationPlayer".play("Walking")
 	if Input.is_action_pressed("ui_right"):
 		input_movement_vector.x += 1
+		$"Scene Root/AnimationPlayer".play("Walking")
 
 	input_movement_vector = input_movement_vector.normalized()
 
