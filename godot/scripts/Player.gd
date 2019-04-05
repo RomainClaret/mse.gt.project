@@ -1,87 +1,88 @@
 extends KinematicBody
 
 const GRAVITY = -9.8
+const MAX_SLOPE_ANGLE = 40
+
+# not const because the user should be able to modify it from settings
+var MOUSE_SENSITIVITY = 0.2  
 
 var max_speed
-const MAX_WALKING_SPEED = 5
-const MAX_SPRINT_SPEED = 10
-
-const JUMP_SPEED = 5
+const MAX_WALKING_SPEED = 3
+const MAX_SPRINT_SPEED = 6
 
 var accel
 const WALKING_ACCEL = 4.5
 const SPRINT_ACCEL = 8
 const DEACCEL= 16
 
-const MAX_SLOPE_ANGLE = 40
+const JUMP_SPEED = 5
 
-var MOUSE_SENSITIVITY = 0.2
+var zoom = 1
+const MAX_ZOOM = 6
+
 
 var vel : Vector3
 var dir : Vector3
 
-var camera
-var rotation_helper
-var flashlight
-
-const MAX_ZOOM = 6
-var zoom = 1
-
-export var anim_speed = 10
-
+var camera : Camera
+var rotation_helper : Spatial
+var flashlight : SpotLight
+var minimap : Camera
 
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
+	minimap = $HUD/Viewport_Minimap/Camera_Minimap
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$"Scene Root/AnimationPlayer".playback_speed = anim_speed
 
 
 func _physics_process(delta):
-	process_input(delta)
-	process_movement(delta)
-
-
-func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
-		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
-
-		var camera_rot = rotation_helper.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -70, 70 )
-		rotation_helper.rotation_degrees = camera_rot
-	
-	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		var cam_xform = camera.get_global_transform()
-		if event.button_index == BUTTON_WHEEL_UP or event.button_index == BUTTON_WHEEL_DOWN:
-			if event.button_index == BUTTON_WHEEL_UP and zoom > 1:
-					camera.translate_object_local(Vector3(0, -1, -2))
-					zoom -= 1
-					if zoom == 1:
-						$"Scene Root".hide()
-			elif event.button_index == BUTTON_WHEEL_DOWN and zoom < MAX_ZOOM:
-					camera.translate_object_local(Vector3(0, 1, 2))
-					zoom += 1
-					if zoom > 1:
-						$"Scene Root".show()
-					
-
-
-
-func process_input(delta):
 	walking()
 	jumping()
 	sprinting()
-	
 	attacking()
+	
+	var vec = transform.origin
+	vec.y += 10
+	minimap.transform.origin = vec
 	
 	toggle_flashlight()
 
 	# Capturing / Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle_cursor_focus()
+	
+	process_movement(delta)
+
+
+func _input(event):
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+				
+		if event is InputEventMouseMotion:
+			rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
+			self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+			minimap.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+					
+			var camera_rot = rotation_helper.rotation_degrees
+			# Can't watch more/less than 60° upward/downward
+			camera_rot.x = clamp(camera_rot.x, -60, 60 )
+			rotation_helper.rotation_degrees = camera_rot
+			
+	
+		if event is InputEventMouseButton:
+			var cam_xform = camera.get_global_transform()
+			if event.button_index == BUTTON_WHEEL_UP and zoom > 1:
+				camera.translate_object_local(Vector3(0, -1, -2))
+				zoom -= 1
+				if zoom == 1:
+					$"Penguin".hide()
+			elif event.button_index == BUTTON_WHEEL_DOWN and zoom < MAX_ZOOM:
+				camera.translate_object_local(Vector3(0, 1, 2))
+				zoom += 1
+				if zoom > 1:
+					$"Penguin".show()
 
 
 func walking():
@@ -92,18 +93,19 @@ func walking():
 
 	if Input.is_action_pressed("ui_up"):
 		input_movement_vector.y += 1
-		$"Scene Root/AnimationPlayer".play("Walking")
 	if Input.is_action_pressed("ui_down"):
 		input_movement_vector.y -= 1
-		$"Scene Root/AnimationPlayer".play("Walking")
 	if Input.is_action_pressed("ui_left"):
 		input_movement_vector.x -= 1
-		$"Scene Root/AnimationPlayer".play("Walking")
 	if Input.is_action_pressed("ui_right"):
 		input_movement_vector.x += 1
-		$"Scene Root/AnimationPlayer".play("Walking")
 
 	input_movement_vector = input_movement_vector.normalized()
+	
+	if input_movement_vector.x != 0 or input_movement_vector.y != 0:
+		$Penguin/AnimationPlayer.play("Walking")
+	else:
+		$Penguin/AnimationPlayer.stop()
 
 	dir += cam_xform.basis.x.normalized() * input_movement_vector.x
 	dir += -cam_xform.basis.z.normalized() * input_movement_vector.y
@@ -125,8 +127,8 @@ func sprinting():
 
 
 func attacking():
-	if Input.is_action_pressed("mouse_left"):
-		$Dagger/AnimationPlayer.play("Hit")
+	if Input.is_action_just_pressed("mouse_left"):
+		$Rotation_Helper/Spatial/Dagger/AnimationPlayer.play("Hit")
 
 
 func toggle_flashlight():
@@ -162,4 +164,5 @@ func process_movement(delta):
 	hvel = hvel.linear_interpolate(target, accel * delta)
 	vel.x = hvel.x
 	vel.z = hvel.z
+	
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))

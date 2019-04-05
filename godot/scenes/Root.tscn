@@ -189,6 +189,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4505, -11.474, 11.2486 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5943, -9.11067, 11.3721 )
 
 [node name="Stones" type="Spatial" parent="Island_Large"]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -450,7 +451,6 @@ transform = Transform( -0.412556, -0.540874, -0.421014, 0.616451, -0.507619, 0.0
 transform = Transform( -0.412556, -0.540874, -0.421014, 0.616451, -0.507619, 0.0480681, -0.299642, -0.29963, 0.678555, 4.59577, -1.56973, -0.186104 )
 
 [node name="Track" type="Spatial" parent="Island_Small"]
-editor/display_folded = true
 
 [node name="Grass_Patch_A" parent="Island_Small/Track" instance=ExtResource( 28 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.60427, -2.20458, 1.57502 )
@@ -459,7 +459,7 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.60427, -2.20458, 1.575
 transform = Transform( 0.599687, -0.00351489, -0.00635561, -8.47481e-10, 0.590058, -0.0362582, 0.0193881, 0.108718, 0.196583, 1.84262, -3.83093, 1.37204 )
 
 [node name="Path_Stone_B" parent="Island_Small/Track" instance=ExtResource( 19 )]
-transform = Transform( 0.99678, -3.50486e-09, 0.0160364, 3.50486e-09, 1, 2.81473e-11, -0.0801818, 1.40737e-10, 0.199356, -0.772598, -1.0189, 2.02291 )
+transform = Transform( 0.990638, 0.00117507, 0.0273015, 0.00166324, 0.999785, -0.00413529, -0.136502, 0.0207099, 0.198085, -0.772598, -1.01891, 1.92016 )
 
 [node name="Grass_Patch_b" parent="Island_Small/Track" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 0.977026, 0.213119, 0, -0.213119, 0.977026, -13.4024, -3.0071, 1.98191 )
@@ -487,7 +487,6 @@ transform = Transform( -0.534754, 0, 0.845008, 0.845008, -4.37114e-08, 0.534754,
 [node name="Ocean2" parent="." instance=ExtResource( 31 )]
 
 [node name="Clouds" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="Cloud" parent="Clouds" instance=ExtResource( 32 )]
 transform = Transform( 0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, -36.9013, 34.9518, 24.3603 )
@@ -496,7 +495,7 @@ transform = Transform( 0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, -
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -18.3688, 47.5494, -16.2732 )
 
 [node name="Cloud3" parent="Clouds" instance=ExtResource( 32 )]
-transform = Transform( 1.29991, -3.30465e-10, 0.0151611, -0.0151611, -5.66905e-08, 1.29991, 3.30465e-10, -1.3, -5.66905e-08, 9.36852, 33.8814, 9.59268 )
+transform = Transform( 1.29991, -3.30465e-10, 0.0151611, -0.0151611, -5.66905e-08, 1.29991, 3.30465e-10, -1.3, -5.66905e-08, 28.123, 33.8814, 9.59268 )
 
 [node name="Player" parent="." instance=ExtResource( 33 )]
 transform = Transform( -0.0541404, 0, -0.192533, 0, 0.2, 0, 0.192533, 0, -0.0541404, 13.2177, 6.21476, 4.39055 )

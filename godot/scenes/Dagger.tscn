@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -65, 21, -21 ), Vector3( -10, 40, -21 ), Vector3( -65, 21, -21 ) ]
+"values": [ Vector3( -65, 30, -20 ), Vector3( -10, 40, -20 ), Vector3( -65, 30, -20 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:translation")
@@ -42,11 +42,11 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -0.8, 4.8, 1.2 ), Vector3( -0.3, 5.3, 1.2 ), Vector3( -0.8, 4.8, 1.2 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.25, 0.5, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
 [node name="Dagger" type="MeshInstance"]
-transform = Transform( 0.915125, 0.0203321, 0.402657, -0.284312, 0.740659, 0.608761, -0.285854, -0.671573, 0.683576, -0.55, 5.05, 1.2 )
+transform = Transform( 0.968785, -0.129627, 0.211309, -0.144544, 0.397131, 0.906307, -0.2014, -0.908561, 0.365998, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
