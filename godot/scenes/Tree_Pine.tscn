@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/tree_c/medievalfantasyforest_unwrap.material" type="Material" id=1]
-[ext_resource path="res://assets/tree_c/collider.dae" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/tree_c/medievalfantasyforest_unwrap.material" type="Material" id=1]
+[ext_resource path="res://assets/environment/tree_c/collider.dae" type="PackedScene" id=2]
+
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "mff_tree_pine_0_0"

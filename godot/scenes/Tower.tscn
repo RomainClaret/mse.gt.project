@@ -1,18 +1,20 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://assets/door/medievalfantasyforest_unwrap.material" type="Material" id=1]
-[ext_resource path="res://assets/door/collider.dae" type="PackedScene" id=2]
-[ext_resource path="res://assets/tower_base/medievalfantasyforest_unwrap.material" type="Material" id=3]
-[ext_resource path="res://assets/tower_base/collider.dae" type="PackedScene" id=4]
-[ext_resource path="res://assets/ladder/medievalfantasyforest_unwrap.material" type="Material" id=5]
-[ext_resource path="res://assets/ladder/collider.dae" type="PackedScene" id=6]
-[ext_resource path="res://assets/tower_floor/medievalfantasyforest_unwrap.material" type="Material" id=7]
-[ext_resource path="res://assets/tower_floor/collider.dae" type="PackedScene" id=8]
-[ext_resource path="res://assets/tower_middle/medievalfantasyforest_unwrap.material" type="Material" id=9]
-[ext_resource path="res://assets/tower_middle/collider.dae" type="PackedScene" id=10]
-[ext_resource path="res://assets/tower_top/medievalfantasyforest_unwrap.material" type="Material" id=11]
-[ext_resource path="res://assets/tower_top/collider.dae" type="PackedScene" id=12]
+[ext_resource path="res://assets/environment/door/medievalfantasyforest_unwrap.material" type="Material" id=1]
+[ext_resource path="res://assets/environment/door/collider.dae" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/tower_base/medievalfantasyforest_unwrap.material" type="Material" id=3]
+[ext_resource path="res://assets/environment/tower_base/collider.dae" type="PackedScene" id=4]
+[ext_resource path="res://assets/environment/ladder/medievalfantasyforest_unwrap.material" type="Material" id=5]
+[ext_resource path="res://assets/environment/ladder/collider.dae" type="PackedScene" id=6]
+[ext_resource path="res://assets/environment/tower_floor/medievalfantasyforest_unwrap.material" type="Material" id=7]
+[ext_resource path="res://assets/environment/tower_floor/collider.dae" type="PackedScene" id=8]
+[ext_resource path="res://assets/environment/tower_middle/medievalfantasyforest_unwrap.material" type="Material" id=9]
+[ext_resource path="res://assets/environment/tower_middle/collider.dae" type="PackedScene" id=10]
+[ext_resource path="res://assets/environment/tower_top/medievalfantasyforest_unwrap.material" type="Material" id=11]
+[ext_resource path="res://assets/environment/tower_top/collider.dae" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Broken_Column.tscn" type="PackedScene" id=13]
+
+
 
 [sub_resource type="ArrayMesh" id=7]
 resource_name = "mff_tower_door_0"

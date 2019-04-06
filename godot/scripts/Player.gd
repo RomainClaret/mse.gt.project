@@ -33,7 +33,7 @@ func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
-	minimap = $HUD/Viewport_Minimap/Camera_Minimap
+	minimap = $GUI/Viewport_Minimap/Camera_Minimap
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -144,7 +144,6 @@ func toggle_cursor_focus():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		$HUD/Popup.popup_centered(Vector2(0, 0))
 
 
 func process_movement(delta):
