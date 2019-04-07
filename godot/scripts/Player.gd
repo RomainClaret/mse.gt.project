@@ -29,11 +29,12 @@ var rotation_helper : Spatial
 var flashlight : SpotLight
 var minimap : Camera
 
+
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
 	flashlight = $Rotation_Helper/Flashlight
-	minimap = $GUI/Viewport_Minimap/Camera_Minimap
+	minimap = $Viewport_Minimap/Camera_Minimap
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -72,7 +73,6 @@ func _input(event):
 			
 	
 		if event is InputEventMouseButton:
-			var cam_xform = camera.get_global_transform()
 			if event.button_index == BUTTON_WHEEL_UP and zoom > 1:
 				camera.translate_object_local(Vector3(0, -1, -2))
 				zoom -= 1
@@ -165,3 +165,18 @@ func process_movement(delta):
 	vel.z = hvel.z
 	
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
+
+
+##
+# Signals handlers
+##
+
+func _on_Mushroom_Blue_pick_up():
+	var current = int($GUI/Mushrooms_Blue/HBoxContainer/NinePatchRect/Label.get_text())
+	$GUI/Mushrooms_Blue/HBoxContainer/NinePatchRect/Label.set_text(str(current + 1))
+	
+	
+func _on_Mushroom_Red_pick_up():
+	var current = int($GUI/Mushrooms_Red/NinePatchRect/Label.get_text())
+	$GUI/Mushrooms_Red/NinePatchRect/Label.set_text(str(current + 1))
+	

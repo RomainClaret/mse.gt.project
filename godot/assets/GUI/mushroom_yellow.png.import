@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/minimap_indicator.svg-9688233576d0a61d289f81e20b7db2e0.stex"
+path="res://.import/mushroom_yellow.png-463539f6dc5220a7bf7153a1b7449de5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minimap_indicator.svg"
-dest_files=[ "res://.import/minimap_indicator.svg-9688233576d0a61d289f81e20b7db2e0.stex" ]
+source_file="res://assets/GUI/mushroom_yellow.png"
+dest_files=[ "res://.import/mushroom_yellow.png-463539f6dc5220a7bf7153a1b7449de5.stex" ]
 
 [params]
 
