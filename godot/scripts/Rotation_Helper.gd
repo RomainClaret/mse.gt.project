@@ -24,9 +24,10 @@ const MAX_ZOOM = 6
 var vel : Vector3
 var dir : Vector3
 
-signal player_y_rotation(angle)
 
-	
+signal sprinting
+signal stop_sprinting
+
 func _physics_process(delta):
 	walking()
 	jumping()
@@ -63,12 +64,16 @@ func jumping():
 
 
 func sprinting():
-	if Input.is_action_pressed("sprint"):
+	if Input.is_action_pressed("sprint") and get_parent().get_node("GUI").mp > 0:
 		max_speed = MAX_SPRINT_SPEED
 		accel = SPRINT_ACCEL
+		emit_signal("sprinting")
 	else:
 		max_speed = MAX_WALKING_SPEED
 		accel = WALKING_ACCEL
+		
+	if Input.is_action_just_released("sprint"):
+		emit_signal("stop_sprinting")
 
 
 func process_movement(delta):
@@ -100,7 +105,7 @@ func _input(event):
 			
 			var angle = deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1)
 			get_parent().rotate_y(angle)
-			emit_signal("player_y_rotation", angle) # Signals the rotation to the minimap 
+			get_parent().get_node("Viewport_Minimap/Camera_Minimap").rotate_y(angle) 
 
 			# Can't watch more/less than 60° upward/downward
 			rotation_degrees.x = clamp(rotation_degrees.x, -60, 60 )
@@ -110,6 +115,10 @@ func _input(event):
 			if event.button_index == BUTTON_WHEEL_UP and zoom > 1:
 				$Camera.translate_object_local(Vector3(0, -1, -2))
 				zoom -= 1
+				if zoom == 1:
+					get_parent().get_node("Ghost").hide()
 			elif event.button_index == BUTTON_WHEEL_DOWN and zoom < MAX_ZOOM:
 				$Camera.translate_object_local(Vector3(0, 1, 2))
 				zoom += 1
+				if zoom > 1:
+					get_parent().get_node("Ghost").show()
