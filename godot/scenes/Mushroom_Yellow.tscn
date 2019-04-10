@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/environment/mushroom_yellow/medievalfantasyforest_unwrap.material" type="Material" id=1]
-
+[ext_resource path="res://scripts/Mushroom.gd" type="Script" id=1]
+[ext_resource path="res://assets/environment/mushroom_yellow/medievalfantasyforest_unwrap.material" type="Material" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "mff_plant_mushroom_yellow_0"
@@ -12,13 +12,22 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 555,
-"material": ExtResource( 1 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 158
 }
 
-[node name="Mushroom_Yellow" type="MeshInstance"]
+[sub_resource type="BoxShape" id=2]
+
+[node name="Area" type="Area"]
+script = ExtResource( 1 )
+
+[node name="Mushroom_Yellow" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.218826, 0, 0, 0, 0.21771, 0, 0, 0, 0.25144, 0, 0, 0.202445 )
+shape = SubResource( 2 )
 

@@ -23,8 +23,8 @@
 [ext_resource path="res://scenes/Flower.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/Grass_Patch_Edge.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/Mushroom_Blue.tscn" type="PackedScene" id=23]
-[ext_resource path="res://scenes/Mushroom_Yellow.tscn" type="PackedScene" id=24]
-[ext_resource path="res://scenes/Mushroom_Red.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/Mushroom_Red.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/Mushroom_Yellow.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/Bridge.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/Island_Small.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/Barrel.tscn" type="PackedScene" id=28]
@@ -399,29 +399,32 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.65496, 11.1392, 7.44886 )
 [node name="Mushroom_Blue4" parent="Island_Large/Resources/Mushrooms_blue" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0928, -0.430475, 10.4694 )
 
-[node name="Mushroom_Yellow" parent="Island_Large/Resources" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27688, 7.32457, 5.19238 )
-
-[node name="Mushroom_Yellow3" parent="Island_Large/Resources" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43806, 11.1367, 7.59519 )
-
-[node name="Mushroom_Yellow2" parent="Island_Large/Resources" instance=ExtResource( 24 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.27688, 7.71106, 5.19237 )
-
 [node name="Mushrooms_red" type="Spatial" parent="Island_Large/Resources"]
 editor/display_folded = true
 
-[node name="Mushroom_Red" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 25 )]
+[node name="Mushroom_Red" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57273, 4.54372, 4.38705 )
 
-[node name="Mushroom_Red2" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 25 )]
+[node name="Mushroom_Red2" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06543, 11.676, 6.38407 )
 
-[node name="Mushroom_Red3" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 25 )]
+[node name="Mushroom_Red3" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30312, 10.0645, 7.29702 )
 
-[node name="Mushroom_Red4" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 25 )]
+[node name="Mushroom_Red4" parent="Island_Large/Resources/Mushrooms_red" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52449, 4.46526, 10.3108 )
+
+[node name="Mushrooms_yellow" type="Spatial" parent="Island_Large/Resources"]
+transform = Transform( 4.95866, 0, 0, 0, 4.95866, 0, 0, 0, 4.95866, 0, 0, 0 )
+
+[node name="Mushroom_Yellow" parent="Island_Large/Resources/Mushrooms_yellow" instance=ExtResource( 25 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, -2.30926e-14, 0, 2.30926e-14, 0.2, -1.04907, 2.24679, 1.52781 )
+
+[node name="Mushroom_Yellow3" parent="Island_Large/Resources/Mushrooms_yellow" instance=ExtResource( 25 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, -1.86517e-14, 0, 1.86517e-14, 0.2, 0.657184, 1.47045, 1.05137 )
+
+[node name="Mushroom_Yellow2" parent="Island_Large/Resources/Mushrooms_yellow" instance=ExtResource( 25 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, -2.93099e-14, 0, 2.93099e-14, 0.2, 0.615527, 1.56778, 1.06087 )
 
 [node name="Bridge" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.973082, -0.229636, 0.0194702, 0.0204703, -0.00197347, 0.999789, -0.229549, 0.973275, 0.00662106, 10.9477, 3.56225, 4.21754 )
