@@ -78,15 +78,11 @@ func _unhandled_input(event):
 		get_parent().add_child(bullet)
 	
 	if event.is_action_pressed("camera_switch"):
-		print('ok')
-		camera.hide()
 		if $CameraFirst.is_current():
 			camera = $CameraThird
-			camera.set_current(true)
 		else:
 			camera = $CameraFirst
-			$CameraFirst.set_current(true)
-		camera.show()
+		camera.set_current(true)
 
 
 

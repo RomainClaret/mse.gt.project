@@ -11,8 +11,8 @@ dest_files=[ "res://.import/ladder.glb-a779583580b79ca1aab7d5e83dc78207.scn" ]
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="StaticBody"
+nodes/root_name="Ladder"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0

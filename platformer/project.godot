@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Platformer"
-run/main_scene="res://scenes/Map2.tscn"
+run/main_scene="res://scenes/Map.tscn"
 config/icon="res://icon.png"
 
 [input]

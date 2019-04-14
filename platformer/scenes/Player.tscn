@@ -34,7 +34,7 @@ transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 
 visible = false
 
 [node name="CameraFirst" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -0.25 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00199, -0.658086 )
 current = true
 
 [node name="Muzzle" type="Position3D" parent="."]
