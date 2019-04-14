@@ -116,9 +116,9 @@ func _input(event):
 				$Camera.translate_object_local(Vector3(0, -1, -2))
 				zoom -= 1
 				if zoom == 1:
-					get_parent().get_node("Ghost").hide()
+					get_parent().get_node("Knight").hide()
 			elif event.button_index == BUTTON_WHEEL_DOWN and zoom < MAX_ZOOM:
 				$Camera.translate_object_local(Vector3(0, 1, 2))
 				zoom += 1
 				if zoom > 1:
-					get_parent().get_node("Ghost").show()
+					get_parent().get_node("Knight").show()

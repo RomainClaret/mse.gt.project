@@ -1,12 +1,15 @@
 extends KinematicBody
 
 var ghost : AnimationPlayer
+var knight : AnimationPlayer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	ghost = $Ghost/AnimationPlayer
-	ghost.play("idle")
+#	ghost = $Ghost/AnimationPlayer
+#	ghost.play("idle")
+
+	knight = $Knight/AnimationPlayer
 	
 	$Rotation_Helper.connect("sprinting", $GUI, "_on_sprinting")
 	$Rotation_Helper.connect("stop_sprinting", $GUI, "_on_stop_sprinting")
@@ -18,10 +21,12 @@ func _physics_process(delta):
 		toggle_cursor_focus()
 	
 	if $Rotation_Helper.vel.x != 0 || $Rotation_Helper.vel.z != 0:
-		ghost.play("marcher")
+		knight.set_speed_scale(3)
+		knight.play("Walking")
 	else:
-		ghost.play("idle")
-	
+		knight.set_speed_scale(1)
+		knight.play("Attack")
+
 
 
 

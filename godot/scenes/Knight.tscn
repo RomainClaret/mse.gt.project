@@ -1,51 +1,10 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Rotation_Helper.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Flashlight.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Dagger.gd" type="Script" id=4]
-[ext_resource path="res://scenes/Dagger.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scripts/Camera_Minimap.gd" type="Script" id=6]
-[ext_resource path="res://scripts/GUI.gd" type="Script" id=7]
-[ext_resource path="res://assets/GUI/minimap_indicator.svg" type="Texture" id=8]
-[ext_resource path="res://assets/GUI/label_resources_bg.png" type="Texture" id=9]
-[ext_resource path="res://assets/GUI/Titillium-Regular.otf" type="DynamicFontData" id=10]
-[ext_resource path="res://assets/GUI/mushroom_red.png" type="Texture" id=11]
-[ext_resource path="res://assets/GUI/mushroom_blue.png" type="Texture" id=12]
-[ext_resource path="res://assets/GUI/mushroom_yellow.png" type="Texture" id=13]
-[ext_resource path="res://assets/GUI/lifebar_bg.png" type="Texture" id=14]
-[ext_resource path="res://assets/GUI/lifebar_fill.png" type="Texture" id=15]
-[ext_resource path="res://assets/GUI/energy_bar_bg.png" type="Texture" id=16]
-[ext_resource path="res://assets/GUI/energy_bar_fill.png" type="Texture" id=17]
-[ext_resource path="res://scenes/Ghost.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/environment/knight/Armor.material" type="Material" id=19]
-[ext_resource path="res://assets/environment/knight/Leather.material" type="Material" id=20]
-[ext_resource path="res://assets/environment/knight/Sword.material" type="Material" id=21]
-[ext_resource path="res://assets/environment/knight/SwordLeather.material" type="Material" id=22]
-[ext_resource path="res://assets/environment/knight/Shield.material" type="Material" id=23]
-
-[sub_resource type="CapsuleShape" id=1]
-radius = 1.2
-height = 2.9
-
-[sub_resource type="ProceduralSky" id=2]
-ground_bottom_color = Color( 0.243137, 0.54902, 0.717647, 1 )
-ground_horizon_color = Color( 0.243137, 0.54902, 0.717647, 1 )
-
-[sub_resource type="Environment" id=3]
-background_mode = 2
-background_sky = SubResource( 2 )
-
-[sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("Viewport_Minimap")
-
-[sub_resource type="DynamicFont" id=5]
-size = 45
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 38
-font_data = ExtResource( 10 )
+[ext_resource path="res://assets/environment/knight/Armor.material" type="Material" id=1]
+[ext_resource path="res://assets/environment/knight/Leather.material" type="Material" id=2]
+[ext_resource path="res://assets/environment/knight/Sword.material" type="Material" id=3]
+[ext_resource path="res://assets/environment/knight/SwordLeather.material" type="Material" id=4]
+[ext_resource path="res://assets/environment/knight/Shield.material" type="Material" id=5]
 
 [sub_resource type="ArrayMesh" id=11]
 resource_name = "Knight_Low_0"
@@ -56,7 +15,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97751,
 "index_count": 2616,
-"material": ExtResource( 19 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.15596, -0.54216, 0.89201, 1e-05, 1e-05, 1e-05 ), AABB( 0, -0.5387, 0.89201, 1e-05, 1e-05, 1e-05 ), AABB( 0, 0.06791, 0.58437, 1e-05, 1e-05, 1e-05 ), AABB( 1.4863, -0.55458, 0.15522, 1e-05, 1e-05, 1e-05 ), AABB( 1.21095, -0.65137, -0.15874, 1e-05, 1e-05, 1e-05 ), AABB( -0.15596, -0.54216, 0.89201, 1e-05, 1e-05, 1e-05 ), AABB( -1.07064, -0.47653, 0.52348, 1e-05, 1e-05, 1e-05 ), AABB( -1.4863, -0.55458, 0.15522, 1e-05, 1e-05, 1e-05 ), AABB( -1.21095, -0.65137, -0.15874, 1e-05, 1e-05, 1e-05 ), AABB( -0.15596, -0.54216, 0.89201, 1e-05, 1e-05, 1e-05 ), AABB( -0.15596, -0.54216, 0.89201, 1e-05, 1e-05, 1e-05 ), AABB( -0.3743, -0.65838, 0.62356, 1e-05, 1e-05, 1e-05 ), AABB( -0.24412, -0.607, -0.31225, 1e-05, 1e-05, 1e-05 ), AABB( -0.24412, -0.607, -0.31225, 1e-05, 1e-05, 1e-05 ), AABB( 0, -0.64062, 0.17618, 1e-05, 1e-05, 1e-05 ), AABB( -0.02524, -0.33729, -0.30608, 1e-05, 1e-05, 1e-05 ), AABB( 0.51677, -0.59586, -0.39434, 1e-05, 1e-05, 1e-05 ) ],
 "vertex_count": 2248
@@ -71,7 +30,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97751,
 "index_count": 552,
-"material": ExtResource( 20 ),
+"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.12864, -0.40373, 0.9498, 1e-05, 1e-05, 1e-05 ), AABB( 0, -0.64062, 0.17618, 1e-05, 1e-05, 1e-05 ), AABB( 0.89654, 0.01413, 0.49348, 1e-05, 1e-05, 1e-05 ), AABB( 0.89654, 0.01413, 0.49348, 1e-05, 1e-05, 1e-05 ), AABB( 0.89654, 0.01413, 0.49348, 1e-05, 1e-05, 1e-05 ), AABB( -0.12864, -0.26404, 0.9498, 1e-05, 1e-05, 1e-05 ), AABB( -0.89654, 0.01413, 0.49348, 1e-05, 1e-05, 1e-05 ), AABB( -1.28016, -0.42833, 0.06549, 1e-05, 1e-05, 1e-05 ), AABB( -1.16581, -0.64665, 0.23188, 1e-05, 1e-05, 1e-05 ), AABB( -0.12864, -0.26404, 0.9498, 1e-05, 1e-05, 1e-05 ), AABB( -0.12864, -0.26404, 0.9498, 1e-05, 1e-05, 1e-05 ), AABB( -0.43969, -0.52813, -0.05266, 1e-05, 1e-05, 1e-05 ), AABB( -0.43969, -0.52813, -0.05266, 1e-05, 1e-05, 1e-05 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0.02836, 0.11156, 1e-05, 1e-05, 1e-05 ), AABB( 0, -0.58602, -0.03495, 1e-05, 1e-05, 1e-05 ) ],
 "vertex_count": 528
@@ -86,7 +45,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97751,
 "index_count": 384,
-"material": ExtResource( 21 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 1.39017, -0.461001, -0.0135752, 1e-05, 1e-05, 1e-05 ), AABB( 1.44755, -0.566168, -0.103168, 1e-05, 1e-05, 1e-05 ) ],
 "vertex_count": 327
@@ -101,7 +60,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97751,
 "index_count": 48,
-"material": ExtResource( 22 ),
+"material": ExtResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 1.34331, -0.524923, -0.0126528, 1e-05, 1e-05, 1e-05 ), AABB( 1.14364, -0.803563, 0.0249395, 1e-05, 1e-05, 1e-05 ) ],
 "vertex_count": 42
@@ -116,7 +75,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97751,
 "index_count": 192,
-"material": ExtResource( 23 ),
+"material": ExtResource( 5 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -1.77446, -0.0924, 0.223416, 1e-05, 1e-05, 1e-05 ), AABB( -1.42197, -0.159681, 0.446701, 1e-05, 1e-05, 1e-05 ) ],
 "vertex_count": 148
@@ -772,302 +731,20 @@ tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = PoolRealArray( 0, 1, 0, 1.2964e-06, 1.54972e-06, -0.24438, 0.00321002, -0.00186001, 0.969672, 1, 1.00001, 1.00001, 0.0666667, 1, 0, 1.2964e-06, 1.54972e-06, -0.242712, 0.00322201, -0.00186601, 0.970091, 1, 1.00001, 1.00001, 0.133333, 1, 0, 1.2964e-06, 1.54972e-06, -0.230234, 0.00331007, -0.00189604, 0.973128, 1, 1.00001, 1.00001, 0.2, 1, 0, 1.2964e-06, 1.54972e-06, -0.202956, 0.00349414, -0.00193608, 0.97918, 1, 1.00001, 1.00001, 0.466667, 1, 0, 1.2964e-06, 1.54972e-06, -0.0375796, 0.00454015, -0.00193806, 0.999281, 1, 1.00001, 1.00001, 0.533333, 1, 0, 1.2964e-06, 1.54972e-06, -0.0131089, 0.00467608, -0.00192204, 0.999901, 1, 1.00001, 1.00001, 0.6, 1, 0, 1.2964e-06, 1.54972e-06, 0.00193858, 0.00474228, -0.00188811, 0.999985, 1, 1.00001, 1.00001, 0.666667, 1, 0, 1.2964e-06, 1.54972e-06, 0.0115897, 0.00477997, -0.00176, 0.99992, 1, 1.00001, 1.00001, 0.733333, 1, 0, 1.2964e-06, 1.54972e-06, 0.0151274, 0.00477374, -0.00156191, 0.999873, 1, 1.00001, 1.00001, 0.8, 1, 0, 1.2964e-06, 1.54972e-06, 0.0143797, 0.0047338, -0.00137194, 0.999884, 1, 1.00001, 1.00001, 0.933333, 1, 0, 1.2964e-06, 1.54972e-06, 0.00750446, 0.00470416, -0.00127004, 0.99996, 1, 1.00001, 1.00001, 1, 1, 0, 1.2964e-06, 1.54972e-06, 0.00529052, 0.00472022, -0.00140007, 0.999974, 1, 1.00001, 1.00001, 1.06667, 1, 0, 1.2964e-06, 1.54972e-06, 0.00482638, 0.00474623, -0.00171409, 0.999976, 1, 1.00001, 1.00001, 1.13333, 1, 0, 1.2964e-06, 1.54972e-06, 0.00506045, 0.00477022, -0.0022181, 0.999973, 1, 1.00001, 1.00001, 1.2, 1, 0, 1.2964e-06, 1.54972e-06, 0.00512437, 0.00477825, -0.00287417, 0.999971, 1, 1.00001, 1.00001, 1.26667, 1, 0, 1.2964e-06, 1.54972e-06, 0.00355042, 0.00477628, -0.0035902, 0.999976, 1, 1.00001, 1.00001, 1.33333, 1, 0, 1.2964e-06, 1.54972e-06, -0.000730289, 0.0047703, -0.00426029, 0.999979, 1, 1.00001, 1.00001, 1.4, 1, 0, 1.2964e-06, 1.54972e-06, -0.00912571, 0.00476412, -0.00474611, 0.999936, 1, 1.00001, 1.00001, 1.46667, 1, 0, 1.2964e-06, 1.54972e-06, -0.0211287, 0.00474605, -0.00503206, 0.999753, 1, 1.00001, 1.00001, 1.53333, 1, 0, 1.2964e-06, 1.54972e-06, -0.0377597, 0.00469808, -0.00508808, 0.999263, 1, 1.00001, 1.00001, 1.6, 1, 0, 1.2964e-06, 1.54972e-06, -0.0634399, 0.00454822, -0.00495624, 0.997963, 1, 1.00001, 1.00001, 1.86667, 1, 0, 1.2964e-06, 1.54972e-06, -0.210468, 0.0035001, -0.00290408, 0.97759, 1, 1.00001, 1.00001, 1.93333, 1, 0, 1.2964e-06, 1.54972e-06, -0.233201, 0.00331806, -0.00239204, 0.97242, 1, 1.00001, 1.00001, 2, 1, 0, 1.2964e-06, 1.54972e-06, -0.244239, 0.00325, -0.00201, 0.969708, 1, 1.00001, 1.00001, 2.06667, 1, 0, 1.2964e-06, 1.54972e-06, -0.241212, 0.00324002, -0.00180001, 0.970465, 1, 1.00001, 1.00001, 2.13333, 1, 0, 1.2964e-06, 1.54972e-06, -0.223989, 0.00334409, -0.00171605, 0.974584, 1, 1.00001, 1.00001, 2.2, 1, 0, 1.2964e-06, 1.54972e-06, -0.190862, 0.00356817, -0.00170008, 0.981609, 1, 1.00001, 1.00001, 2.4, 1, 0, 1.2964e-06, 1.54972e-06, -0.0538347, 0.00444032, -0.00196414, 0.998538, 1, 1.00001, 1.00001, 2.46667, 1, 0, 1.2964e-06, 1.54972e-06, -0.0217852, 0.00462611, -0.00197804, 0.99975, 1, 1.00001, 1.00001, 2.53333, 1, 0, 1.2964e-06, 1.54972e-06, -0.00230652, 0.00473831, -0.00194613, 0.999984, 1, 1.00001, 1.00001, 2.6, 1, 0, 1.2964e-06, 1.54972e-06, 0.00990502, 0.00477625, -0.00182609, 0.999938, 1, 1.00001, 1.00001, 2.66667, 1, 0, 1.2964e-06, 1.54972e-06, 0.0162501, 0.00476004, -0.00164002, 0.999855, 1, 1.00001, 1.00001, 2.73333, 1, 0, 1.2964e-06, 1.54972e-06, 0.0164282, 0.00472802, -0.001438, 0.999853, 1, 1.00001, 1.00001, 2.8, 1, 0, 1.2964e-06, 1.54972e-06, 0.0132682, 0.00469795, -0.00128999, 0.9999, 1, 1.00001, 1.00001, 2.86667, 1, 0, 1.2964e-06, 1.54972e-06, 0.00902037, 0.0046821, -0.00125003, 0.999948, 1, 1.00001, 1.00001, 2.93333, 1, 0, 1.2964e-06, 1.54972e-06, 0.0059925, 0.0046942, -0.00134006, 0.99997, 1, 1.00001, 1.00001, 3, 1, 0, 1.2964e-06, 1.54972e-06, 0.0048504, 0.00472023, -0.00157008, 0.999976, 1, 1.00001, 1.00001, 3.06667, 1, 0, 1.2964e-06, 1.54972e-06, 0.00493043, 0.00475223, -0.0020021, 0.999975, 1, 1.00001, 1.00001, 3.13333, 1, 0, 1.2964e-06, 1.54972e-06, 0.00519646, 0.00477222, -0.00260611, 0.999972, 1, 1.00001, 1.00001, 3.2, 1, 0, 1.2964e-06, 1.54972e-06, 0.00445244, 0.00478027, -0.0033102, 0.999973, 1, 1.00001, 1.00001, 3.26667, 1, 0, 1.2964e-06, 1.54972e-06, 0.00116238, 0.0047703, -0.00400423, 0.99998, 1, 1.00001, 1.00001, 3.33333, 1, 0, 1.2964e-06, 1.54972e-06, -0.00541044, 0.00477022, -0.00458023, 0.999964, 1, 1.00001, 1.00001, 3.4, 1, 0, 1.2964e-06, 1.54972e-06, -0.0162394, 0.00475405, -0.00494204, 0.999845, 1, 1.00001, 1.00001, 3.46667, 1, 0, 1.2964e-06, 1.54972e-06, -0.0307108, 0.00472207, -0.00508208, 0.999504, 1, 1.00001, 1.00001, 3.53333, 1, 0, 1.2964e-06, 1.54972e-06, -0.0520773, 0.0046181, -0.0050181, 0.99862, 1, 1.00001, 1.00001, 3.86667, 1, 0, 1.2964e-06, 1.54972e-06, -0.221446, 0.00340408, -0.00245806, 0.975164, 1, 1.00001, 1.00001, 3.93333, 1, 0, 1.2964e-06, 1.54972e-06, -0.238172, 0.00327004, -0.00213803, 0.971215, 1, 1.00001, 1.00001, 4, 1, 0, 1.2964e-06, 1.54972e-06, -0.244239, 0.00322, -0.00201, 0.969708, 1, 1.00001, 1.00001 )
 
-[node name="Player" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0206556, 0 )
-script = ExtResource( 1 )
-
-[node name="Body_CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.948678, 0, 0, 0, 0, -0.487711, 0, 0.913836, 0, 0, 0.907719, -0.017 )
-shape = SubResource( 1 )
-
-[node name="Rotation_Helper" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66538, 0.680264 )
-script = ExtResource( 2 )
-
-[node name="Camera" type="Camera" parent="Rotation_Helper"]
-transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, -0.563556, -0.0365623 )
-environment = SubResource( 3 )
-current = true
-fov = 90.0
-far = 180.0
-
-[node name="Flashlight" type="SpotLight" parent="Rotation_Helper"]
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
-visible = false
-light_color = Color( 1, 0.915375, 0.769531, 1 )
-light_energy = 0.8
-spot_range = 30.0
-spot_attenuation = 2.0
-spot_angle = 50.0
-script = ExtResource( 3 )
-
-[node name="Dagger" type="Spatial" parent="Rotation_Helper"]
-transform = Transform( 0.991407, 0.130813, -1.89796e-09, -0.13033, 0.987745, -0.0858689, -0.0112328, 0.085131, 0.996306, -0.967086, -0.0856986, 1.17756 )
-visible = false
-script = ExtResource( 4 )
-
-[node name="Dagger_Mesh" parent="Rotation_Helper/Dagger" instance=ExtResource( 5 )]
-transform = Transform( 2.90636, -0.388881, 0.633926, -0.433632, 1.19139, 2.71892, -0.604199, -2.72569, 1.09799, 0.0130682, -0.0990415, 0.00861007 )
-
-[node name="Viewport_Minimap" type="Viewport" parent="."]
-size = Vector2( 125, 75 )
-render_target_v_flip = true
-render_target_update_mode = 3
-gui_disable_input = true
-
-[node name="Camera_Minimap" type="Camera" parent="Viewport_Minimap"]
-transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 10, 0 )
-projection = 1
-current = true
-fov = 90.0
-size = 30.0
-far = 180.0
-script = ExtResource( 6 )
-
-[node name="GUI" type="Control" parent="."]
-editor/display_folded = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 7 )
-
-[node name="Minimap" type="MarginContainer" parent="GUI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -185.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = 185.0
-
-[node name="Panel_Minimap" type="PanelContainer" parent="GUI/Minimap"]
-margin_right = 165.0
-margin_bottom = 165.0
-
-[node name="TextureRect_Minimap" type="TextureRect" parent="GUI/Minimap/Panel_Minimap"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 158.0
-margin_bottom = 158.0
-texture = SubResource( 4 )
-expand = true
-
-[node name="TextureRect_Triangle" type="TextureRect" parent="GUI/Minimap/Panel_Minimap/TextureRect_Minimap"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -12.5
-margin_top = -12.5
-margin_right = 12.5
-margin_bottom = 12.5
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 1
-
-[node name="Mushrooms_Red" type="MarginContainer" parent="GUI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -200.0
-margin_top = -140.0
-margin_right = -20.0
-margin_bottom = -20.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/Mushrooms_Red"]
-margin_right = 180.0
-margin_bottom = 120.0
-size_flags_horizontal = 3
-texture = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="GUI/Mushrooms_Red/NinePatchRect"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -23.0
-margin_right = 48.0
-margin_bottom = 23.0
-custom_fonts/font = SubResource( 5 )
-text = "0"
-align = 1
-valign = 1
-
-[node name="TextureRect" type="TextureRect" parent="GUI/Mushrooms_Red/NinePatchRect"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -115.0
-margin_top = -54.0
-margin_right = 260.0
-margin_bottom = 291.0
-rect_scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 11 )
-stretch_mode = 4
-
-[node name="Mushrooms_Blue" type="MarginContainer" parent="GUI"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -400.0
-margin_top = -140.0
-margin_right = -220.0
-margin_bottom = -20.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Mushrooms_Blue"]
-margin_right = 180.0
-margin_bottom = 120.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/Mushrooms_Blue/HBoxContainer"]
-margin_right = 180.0
-margin_bottom = 120.0
-size_flags_horizontal = 3
-texture = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="GUI/Mushrooms_Blue/HBoxContainer/NinePatchRect"]
-anchor_bottom = 1.0
-margin_top = 37.0
-margin_right = 48.0
-margin_bottom = -37.0
-custom_fonts/font = SubResource( 5 )
-text = "0"
-align = 1
-valign = 1
-
-[node name="TextureRect" type="TextureRect" parent="GUI/Mushrooms_Blue/HBoxContainer/NinePatchRect"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -115.0
-margin_top = -54.0
-margin_right = 260.0
-margin_bottom = 291.0
-rect_scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 12 )
-stretch_mode = 4
-
-[node name="Mushrooms_Yellow" type="MarginContainer" parent="GUI"]
-editor/display_folded = true
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -600.0
-margin_top = -140.0
-margin_right = -420.0
-margin_bottom = -20.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Mushrooms_Yellow"]
-editor/display_folded = true
-margin_right = 180.0
-margin_bottom = 120.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/Mushrooms_Yellow/HBoxContainer"]
-margin_right = 180.0
-margin_bottom = 120.0
-size_flags_horizontal = 3
-texture = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="GUI/Mushrooms_Yellow/HBoxContainer/NinePatchRect"]
-anchor_bottom = 1.0
-margin_top = 37.0
-margin_right = 48.0
-margin_bottom = -37.0
-custom_fonts/font = SubResource( 5 )
-text = "0"
-align = 1
-valign = 1
-
-[node name="TextureRect" type="TextureRect" parent="GUI/Mushrooms_Yellow/HBoxContainer/NinePatchRect"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -115.0
-margin_top = -54.0
-margin_right = 260.0
-margin_bottom = 291.0
-rect_scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 13 )
-stretch_mode = 4
-
-[node name="Health_Stats" type="VBoxContainer" parent="GUI"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 449.0
-margin_bottom = 110.0
-
-[node name="Life_Bar" type="HBoxContainer" parent="GUI/Health_Stats"]
-editor/display_folded = true
-margin_right = 455.0
-margin_bottom = 53.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="GUI/Health_Stats/Life_Bar"]
-margin_top = 7.0
-margin_right = 55.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 55, 0 )
-custom_fonts/font = SubResource( 6 )
-text = "HP"
-align = 1
-valign = 1
-
-[node name="TextureProgress" type="TextureProgress" parent="GUI/Health_Stats/Life_Bar"]
-margin_left = 59.0
-margin_right = 455.0
-margin_bottom = 53.0
-value = 100.0
-texture_under = ExtResource( 14 )
-texture_progress = ExtResource( 15 )
-
-[node name="Energy_Bar" type="HBoxContainer" parent="GUI/Health_Stats"]
-margin_top = 57.0
-margin_right = 455.0
-margin_bottom = 110.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="GUI/Health_Stats/Energy_Bar"]
-margin_top = 7.0
-margin_right = 55.0
-margin_bottom = 46.0
-custom_fonts/font = SubResource( 6 )
-text = "MP"
-align = 1
-valign = 1
-
-[node name="TextureProgress" type="TextureProgress" parent="GUI/Health_Stats/Energy_Bar"]
-margin_left = 59.0
-margin_right = 455.0
-margin_bottom = 53.0
-value = 100.0
-texture_under = ExtResource( 16 )
-texture_progress = ExtResource( 17 )
-
-[node name="Timer_Energy" type="Timer" parent="GUI/Health_Stats/Energy_Bar"]
-wait_time = 0.1
-autostart = true
-
-[node name="Ghost" parent="." instance=ExtResource( 18 )]
-transform = Transform( 0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0 )
-visible = false
-
-[node name="Knight" type="Spatial" parent="."]
+[node name="Knight" type="Spatial"]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.380889, 0 )
 
-[node name="OrientationMatrix" type="Spatial" parent="Knight"]
+[node name="OrientationMatrix" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
 
-[node name="Correction_Matrix" type="Spatial" parent="Knight/OrientationMatrix"]
+[node name="Correction_Matrix" type="Spatial" parent="OrientationMatrix"]
 
-[node name="Root" type="Spatial" parent="Knight/OrientationMatrix/Correction_Matrix"]
+[node name="Root" type="Spatial" parent="OrientationMatrix/Correction_Matrix"]
 
-[node name="Armature" type="Spatial" parent="Knight/OrientationMatrix/Correction_Matrix/Root"]
+[node name="Armature" type="Spatial" parent="OrientationMatrix/Correction_Matrix/Root"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.06504 )
 
-[node name="Skeleton" type="Skeleton" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature"]
+[node name="Skeleton" type="Skeleton" parent="OrientationMatrix/Correction_Matrix/Root/Armature"]
 bones/0/name = "Armature_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -1159,36 +836,36 @@ bones/17/rest = Transform( -1, 0, 0, 0, -0.309998, -0.950734, 0, -0.950734, 0.30
 bones/17/enabled = true
 bones/17/bound_children = [  ]
 
-[node name="Knight_Low_0" type="MeshInstance" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
+[node name="Knight_Low_0" type="MeshInstance" parent="OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
 mesh = SubResource( 11 )
 material/0 = null
 
-[node name="Knight_Low_1" type="MeshInstance" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
+[node name="Knight_Low_1" type="MeshInstance" parent="OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
 mesh = SubResource( 12 )
 material/0 = null
 
-[node name="Sword_0" type="MeshInstance" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
+[node name="Sword_0" type="MeshInstance" parent="OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
 mesh = SubResource( 13 )
 material/0 = null
 
-[node name="Sword_1" type="MeshInstance" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
+[node name="Sword_1" type="MeshInstance" parent="OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
 mesh = SubResource( 14 )
 material/0 = null
 
-[node name="Shield_0" type="MeshInstance" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
+[node name="Shield_0" type="MeshInstance" parent="OrientationMatrix/Correction_Matrix/Root/Armature/Skeleton"]
 mesh = SubResource( 15 )
 material/0 = null
 
-[node name="Knight_Low" type="Spatial" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature"]
+[node name="Knight_Low" type="Spatial" parent="OrientationMatrix/Correction_Matrix/Root/Armature"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.06504 )
 
-[node name="Sword" type="Spatial" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature"]
+[node name="Sword" type="Spatial" parent="OrientationMatrix/Correction_Matrix/Root/Armature"]
 transform = Transform( 0.38359, 0.62573, -0.67921, -0.70299, -0.2791, -0.65414, -0.59888, 0.7284, 0.33283, 0.63118, -1.24521, 0.29594 )
 
-[node name="Shield" type="Spatial" parent="Knight/OrientationMatrix/Correction_Matrix/Root/Armature"]
+[node name="Shield" type="Spatial" parent="OrientationMatrix/Correction_Matrix/Root/Armature"]
 transform = Transform( 0.48724, 0.3302, 0.80843, 0.39197, 0.74456, -0.54035, -0.78035, 0.58017, 0.23336, -1.61456, -0.5591, 0.16271 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Knight"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 16 )
 anims/Dead = SubResource( 7 )
 anims/Hit = SubResource( 8 )
