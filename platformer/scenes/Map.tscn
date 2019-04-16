@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/Map.gd" type="Script" id=1]
 [ext_resource path="res://scenes/platforms/BlockDirt.tscn" type="PackedScene" id=2]
@@ -14,12 +14,13 @@
 [ext_resource path="res://scenes/platforms/Rocks.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/platforms/BridgeHalf.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/platforms/Ladder.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/platforms/Spikes.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/platforms/CoinBronze.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/platforms/CoinSilver.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/platforms/CoinGold.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/platforms/BlockCliffCorner.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/platforms/Spikes.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/platforms/CoinBronze.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/platforms/CoinSilver.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/platforms/CoinGold.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=21]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 25, 16 )
@@ -120,7 +121,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 
 [node name="Spawn4" type="Spatial" parent="Platforms"]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -3.75 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -3.5 )
 
 [node name="BlockDirt82" parent="Platforms/Spawn4" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, -1 )
@@ -730,7 +731,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.25, 3
 time = 2.75
 
 [node name="Path1" type="Spatial" parent="Platforms"]
-editor/display_folded = true
 
 [node name="Slope" type="Spatial" parent="Platforms/Path1"]
 editor/display_folded = true
@@ -861,7 +861,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2, -6.5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -7.5 )
 
 [node name="Path2" type="Spatial" parent="Platforms"]
-editor/display_folded = true
 
 [node name="Slope1" type="Spatial" parent="Platforms/Path2"]
 editor/display_folded = true
@@ -1023,28 +1022,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 1, 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 1, 2 )
 
 [node name="BlockDirt14" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 1, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 1, 2 )
 
 [node name="BlockDirt15" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 1, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 1, 2 )
 
 [node name="BlockDirt16" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, 1, 1 )
-
-[node name="BlockDirt17" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 1, 1 )
-
-[node name="BlockDirt18" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, 1, 2 )
 
 [node name="BlockDirt19" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, 0, 2 )
 
 [node name="BlockDirt20" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 0, 2 )
 
 [node name="BlockDirt21" parent="Platforms/Path2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0, 2 )
 
 [node name="BlockDirt2" parent="Platforms/Path2" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 3 )
@@ -1247,24 +1240,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 2, 5 )
 [node name="BlockDirtHalf5" parent="Platforms/Path2" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 2, 6 )
 
-[node name="Block3" parent="Platforms/Path2" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 2, 1 )
-
-[node name="Block22" parent="Platforms/Path2" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 2, 1 )
-
-[node name="Block23" parent="Platforms/Path2" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 2, 1 )
-
-[node name="Block4" parent="Platforms/Path2" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 2, 1 )
-
-[node name="Block5" parent="Platforms/Path2" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, 2, 1 )
-
-[node name="Block6" parent="Platforms/Path2" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 2, 1 )
-
 [node name="Block7" parent="Platforms/Path2" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 2, 8 )
 
@@ -1340,10 +1315,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.25, 11 )
 [node name="BlockCliff5" parent="Platforms/Path2" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.25, 11 )
 
+[node name="BlockCliff6" parent="Platforms/Path2" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.25, 2, 0 )
+
+[node name="BlockCliff7" parent="Platforms/Path2" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.25, 2, 0 )
+
+[node name="BlockCliff8" parent="Platforms/Path2" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.25, 2, 0 )
+
+[node name="BlockCliff9" parent="Platforms/Path2" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.25, 2, 0 )
+
+[node name="BlockCliffCorner" parent="Platforms/Path2" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.25, 2, 1 )
+
+[node name="BlockCliffCorner2" parent="Platforms/Path2" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 2, 1 )
+
 [node name="Spikes" type="Spatial" parent="Platforms"]
 editor/display_folded = true
 
-[node name="Spike" parent="Platforms/Spikes" instance=ExtResource( 15 )]
+[node name="Spike" parent="Platforms/Spikes" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3, -10.5 )
 
 [node name="Pickup" type="Spatial" parent="Platforms"]
@@ -1352,39 +1345,39 @@ editor/display_folded = true
 [node name="CoinBronze" type="Spatial" parent="Platforms/Pickup"]
 editor/display_folded = true
 
-[node name="CoinBronze" parent="Platforms/Pickup/CoinBronze" instance=ExtResource( 16 )]
+[node name="CoinBronze" parent="Platforms/Pickup/CoinBronze" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.75, 1.5, -4.25 )
 
-[node name="CoinBronze2" parent="Platforms/Pickup/CoinBronze" instance=ExtResource( 16 )]
+[node name="CoinBronze2" parent="Platforms/Pickup/CoinBronze" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.75, 1.5, -5 )
 
-[node name="CoinBronze3" parent="Platforms/Pickup/CoinBronze" instance=ExtResource( 16 )]
+[node name="CoinBronze3" parent="Platforms/Pickup/CoinBronze" instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.75, 1.5, -5.75 )
 
 [node name="CoinSilver" type="Spatial" parent="Platforms/Pickup"]
 
-[node name="CoinSilver" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 17 )]
+[node name="CoinSilver" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 18 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3, 6.5, -9 )
 
-[node name="CoinSilver2" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 17 )]
+[node name="CoinSilver2" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 18 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1, 6.5, -11 )
 
-[node name="CoinSilver3" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 17 )]
+[node name="CoinSilver3" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 18 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 3, 6.5, -11 )
 
-[node name="CoinSilver4" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 17 )]
+[node name="CoinSilver4" parent="Platforms/Pickup/CoinSilver" instance=ExtResource( 18 )]
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 1, 6.5, -9 )
 
 [node name="CoinGold" type="Spatial" parent="Platforms/Pickup"]
 editor/display_folded = true
 
-[node name="CoinGold" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 18 )]
+[node name="CoinGold" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.4, 3.25, -10.5 )
 
-[node name="CoinGold2" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 18 )]
+[node name="CoinGold2" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.4, 3.25, -9.5 )
 
-[node name="CoinGold3" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 18 )]
+[node name="CoinGold3" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.4, 3.25, -8.5 )
 
 [node name="Rocks" parent="Platforms" instance=ExtResource( 12 )]
@@ -1393,8 +1386,326 @@ transform = Transform( 6.88292, 0, -9.82982, 0, 12, 0, 9.82982, 0, 6.88292, -13.
 [node name="Rocks2" parent="Platforms" instance=ExtResource( 12 )]
 transform = Transform( 10.8757, 0, -5.07142, 0, 12, 0, 5.07142, 0, 10.8757, -13.5, 0, -6.75 )
 
-[node name="Player" parent="." instance=ExtResource( 19 )]
+[node name="Path3" type="Spatial" parent="Platforms"]
+
+[node name="Slope3" type="Spatial" parent="Platforms/Path3"]
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.25, 0, -2.5 )
+
+[node name="BlockSlopeHalf" parent="Platforms/Path3/Slope3" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlockSlopeHalf2" parent="Platforms/Path3/Slope3" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 0 )
+
+[node name="BlockSlopeHalf3" parent="Platforms/Path3/Slope3" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, -1 )
+
+[node name="BlockSlopeHalf4" parent="Platforms/Path3/Slope3" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -1 )
+
+[node name="BlockSlopeHalf5" parent="Platforms/Path3/Slope3" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.19209e-07, 0.5, -1 )
+
+[node name="Slope4" type="Spatial" parent="Platforms/Path3"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 7.25, 0, -2.5 )
+
+[node name="BlockSlopeHalf" parent="Platforms/Path3/Slope4" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="BlockSlopeHalf2" parent="Platforms/Path3/Slope4" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, 0 )
+
+[node name="BlockSlopeHalf3" parent="Platforms/Path3/Slope4" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0.5, -1 )
+
+[node name="BlockSlopeHalf4" parent="Platforms/Path3/Slope4" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -1 )
+
+[node name="BlockSlopeHalf5" parent="Platforms/Path3/Slope4" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.19209e-07, 0.5, -1 )
+
+[node name="BridgeHalf" parent="Platforms/Path3/Slope4" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.75, -1.75 )
+
+[node name="BridgeHalf2" parent="Platforms/Path3/Slope4" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -1.75 )
+
+[node name="BlockHalf3" parent="Platforms/Path3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 0.5, -2.5 )
+
+[node name="BlockHalf" parent="Platforms/Path3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, 0.5, -1.5 )
+
+[node name="BlockHalf2" parent="Platforms/Path3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, 0.5, -2.5 )
+
+[node name="BlockHalf4" parent="Platforms/Path3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.25, 0.5, -2.5 )
+
+[node name="BlockHalf5" parent="Platforms/Path3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.25, 0.5, -1.5 )
+
+[node name="BlockHalf6" parent="Platforms/Path3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 0.5, -1.5 )
+
+[node name="BlockDirt" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -3.5 )
+
+[node name="BlockDirt2" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -3.5 )
+
+[node name="BlockDirt3" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -3.5 )
+
+[node name="BlockDirt4" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -3.5 )
+
+[node name="BlockDirt5" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -3.5 )
+
+[node name="BlockDirt6" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -3.5 )
+
+[node name="BlockDirt13" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -4.5 )
+
+[node name="BlockDirt14" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -4.5 )
+
+[node name="BlockDirt64" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -5.5 )
+
+[node name="BlockDirt15" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4, -4.5 )
+
+[node name="BlockDirt16" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, -4.5 )
+
+[node name="BlockDirt17" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -4.5 )
+
+[node name="BlockDirt18" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, -4.5 )
+
+[node name="BlockDirt19" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, -4.5 )
+
+[node name="BlockDirt20" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -4.5 )
+
+[node name="BlockDirt21" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -5.5 )
+
+[node name="BlockDirt22" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, -5.5 )
+
+[node name="BlockDirt23" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, -5.5 )
+
+[node name="BlockDirt24" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -5.5 )
+
+[node name="BlockDirt25" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, -5.5 )
+
+[node name="BlockDirt26" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4, -5.5 )
+
+[node name="BlockDirt62" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4, -6.5 )
+
+[node name="BlockDirt63" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4, -7.5 )
+
+[node name="BlockDirt27" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3, -4.5 )
+
+[node name="BlockDirt61" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3, -5.5 )
+
+[node name="BlockDirt28" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3, -8.5 )
+
+[node name="BlockDirt29" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4, -8.5 )
+
+[node name="BlockDirt30" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2, -8.5 )
+
+[node name="BlockDirt31" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2, -8.5 )
+
+[node name="BlockDirt74" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -8.5 )
+
+[node name="BlockDirt75" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, -8.5 )
+
+[node name="BlockDirt76" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, -8.5 )
+
+[node name="BlockDirt77" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -8.5 )
+
+[node name="BlockDirt78" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -8.5 )
+
+[node name="BlockDirt82" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -7.5 )
+
+[node name="BlockDirt83" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -6.5 )
+
+[node name="BlockDirt84" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -6.5 )
+
+[node name="BlockDirt85" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -7.5 )
+
+[node name="BlockDirt79" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -8.5 )
+
+[node name="BlockDirt80" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -8.5 )
+
+[node name="BlockDirt81" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -8.5 )
+
+[node name="BlockDirt32" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, -8.5 )
+
+[node name="BlockDirt33" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, -8.5 )
+
+[node name="BlockDirt34" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -8.5 )
+
+[node name="BlockDirt45" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 3, -8.5 )
+
+[node name="BlockDirt46" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 4, -8.5 )
+
+[node name="BlockDirt47" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 4, -8.5 )
+
+[node name="BlockDirt48" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3, -8.5 )
+
+[node name="BlockDirt49" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3, -7.5 )
+
+[node name="BlockDirt50" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3, -6.5 )
+
+[node name="BlockDirt54" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3, -5.5 )
+
+[node name="BlockDirt55" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 4, -7.5 )
+
+[node name="BlockDirt56" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 4, -7.5 )
+
+[node name="BlockDirt57" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 4, -6.5 )
+
+[node name="BlockDirt58" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 4, -6.5 )
+
+[node name="BlockDirt59" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 4, -5.5 )
+
+[node name="BlockDirt60" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 4, -5.5 )
+
+[node name="BlockDirt51" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 3, -5.5 )
+
+[node name="BlockDirt52" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 3, -6.5 )
+
+[node name="BlockDirt53" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 3, -7.5 )
+
+[node name="BlockDirt35" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -7.5 )
+
+[node name="BlockDirt36" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 2, -6.5 )
+
+[node name="BlockDirt37" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, -6.5 )
+
+[node name="BlockDirt38" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, -6.5 )
+
+[node name="BlockDirt39" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -6.5 )
+
+[node name="BlockDirt40" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -6.5 )
+
+[node name="BlockDirt41" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -7.5 )
+
+[node name="BlockDirt42" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -7.5 )
+
+[node name="BlockDirt65" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -8.5 )
+
+[node name="BlockDirt69" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -8.5 )
+
+[node name="BlockDirt70" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -7.5 )
+
+[node name="BlockDirt71" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -6.5 )
+
+[node name="BlockDirt72" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -5.5 )
+
+[node name="BlockDirt66" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 2.75, -4.5 )
+
+[node name="BlockDirt73" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 2, -4 )
+
+[node name="BlockDirt68" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1.75, -4.5 )
+
+[node name="BlockDirt67" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1.75, -3.5 )
+
+[node name="BlockDirt43" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, -7.5 )
+
+[node name="BlockDirt44" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 2, -7.5 )
+
+[node name="BlockDirt7" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -3.5 )
+
+[node name="BlockDirt8" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -3.5 )
+
+[node name="BlockDirt9" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -3.5 )
+
+[node name="BlockDirt10" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -3.5 )
+
+[node name="BlockDirt11" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -3.5 )
+
+[node name="BlockDirt12" parent="Platforms/Path3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -3.5 )
+
+[node name="Player" parent="." instance=ExtResource( 20 )]
 transform = Transform( -0.0174312, 0, 0.199239, 0, 0.2, 0, -0.199239, 0, -0.0174312, -9.5, 0.5, -0.5 )
 
-[node name="HUD" parent="." instance=ExtResource( 20 )]
+[node name="HUD" parent="." instance=ExtResource( 21 )]
 
