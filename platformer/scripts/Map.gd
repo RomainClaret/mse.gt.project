@@ -33,6 +33,5 @@ func increase_coin_gold():
 	var value = int($HUD/HBoxCoin/LabelCoinGold.get_text())
 	$HUD/HBoxCoin/LabelCoinGold.set_text(str(value + 1))
 
-
 func decrease_hp():
 	$HUD/HBoxHP.get_child(0).queue_free()

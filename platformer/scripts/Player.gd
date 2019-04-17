@@ -63,7 +63,9 @@ func _unhandled_input(event):
 		if $CameraFirst.is_current():
 			if event.relative.y != 0:
 				$CameraFirst.rotate_x(-lerp(0, SPIN, event.relative.y / 10))
-				$CameraFirst.rotation_degrees.x = clamp($CameraFirst.rotation_degrees.x, -60, 60 )
+				$CameraFirst.rotation_degrees.x = clamp($CameraFirst.rotation_degrees.x, -60, 60)
+				$FlashLight.rotate_x(-lerp(0, SPIN, event.relative.y / 10))
+				$FlashLight.rotation_degrees.x = clamp($CameraFirst.rotation_degrees.x, -60, 60)
 			
 		if event.relative.x != 0:
 			rotate_y(-lerp(0, SPIN, event.relative.x / 10))

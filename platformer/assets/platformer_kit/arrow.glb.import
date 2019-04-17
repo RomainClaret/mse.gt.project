@@ -11,8 +11,8 @@ dest_files=[ "res://.import/arrow.glb-9ce4c8627dc0fe01025508d7d2b63ac8.scn" ]
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="RigidBody"
+nodes/root_name="Arrow"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
