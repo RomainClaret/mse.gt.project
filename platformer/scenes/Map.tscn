@@ -730,10 +730,8 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.25, 3
 time = 2.75
 
 [node name="Path1" type="Spatial" parent="Platforms"]
-editor/display_folded = true
 
 [node name="Slope" type="Spatial" parent="Platforms/Path1"]
-editor/display_folded = true
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.5, 0, -2.5 )
 
 [node name="BlockSlopeHalf" parent="Platforms/Path1/Slope" instance=ExtResource( 7 )]
@@ -1368,7 +1366,6 @@ transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107,
 transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 1, 6.5, -9 )
 
 [node name="CoinGold" type="Spatial" parent="Platforms/Pickup"]
-editor/display_folded = true
 
 [node name="CoinGold" parent="Platforms/Pickup/CoinGold" instance=ExtResource( 19 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.4, 3.25, -10.5 )

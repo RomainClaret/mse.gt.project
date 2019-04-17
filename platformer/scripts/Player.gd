@@ -5,13 +5,16 @@ class_name Player
 var Bullet = preload("res://scenes/Bullet.tscn")
 
 var GRAVITY = -12
-var SPEED = 12
+var ACCEL = 8
+var SPEED = 4
 var SPRINT_COEFF = 1.6
 var JUMP_SPEED = 4
 var SPIN = 0.05
 const MAX_SLOPE_ANGLE = 40
 
 var velocity : Vector3
+var direction : Vector3
+
 var can_move = true
 var camera : Camera
 
@@ -21,23 +24,26 @@ func _ready():
 
 
 func get_input():
-	if can_move:
-		var vy = velocity.y
-		velocity = Vector3()
-
+	if can_move:	
+		direction = Vector3()
+		var input_movement_vector = Vector2()
+		
 		if Input.is_action_pressed("move_forward"):
-			velocity -= transform.basis.z * SPEED
+			input_movement_vector.y += 1
 		if Input.is_action_pressed("move_backward"):
-			velocity += transform.basis.z * SPEED
+			input_movement_vector.y -= 1
 		if Input.is_action_pressed("starfe_right"):
-			velocity += transform.basis.x * SPEED
+			input_movement_vector.x += 1
 		if Input.is_action_pressed("strafe_left"):
-			velocity -= transform.basis.x * SPEED
+			input_movement_vector.x -= 1
+			
+		input_movement_vector = input_movement_vector.normalized()
 
+		direction += transform.basis.x.normalized() * input_movement_vector.x
+		direction -= transform.basis.z.normalized() * input_movement_vector.y
+		
 		if Input.is_action_pressed("sprint"):
-			velocity *= SPRINT_COEFF
-
-		velocity.y = vy
+			direction *= SPRINT_COEFF
 
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_SPEED
@@ -51,8 +57,25 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	velocity.y += GRAVITY * delta
-	velocity = move_and_slide(velocity, Vector3.UP)
+	
+	velocity.y += delta * GRAVITY
+	
+	var horizontal_velocity = velocity
+	horizontal_velocity.y = 0
+	
+	var target = direction * SPEED
+	var accel = ACCEL
+	
+	# Stop faster
+	if direction.x == 0 and direction.y == 0:
+		accel *= 2
+		
+	horizontal_velocity = horizontal_velocity.linear_interpolate(target, accel * delta)
+	
+	velocity.x = horizontal_velocity.x
+	velocity.z = horizontal_velocity.z
+
+	velocity = move_and_slide(velocity, Vector3.UP, false, 4, deg2rad(MAX_SLOPE_ANGLE))
 	
 	$Minimap/Camera.transform.origin.x = transform.origin.x
 	$Minimap/Camera.transform.origin.z = transform.origin.z
