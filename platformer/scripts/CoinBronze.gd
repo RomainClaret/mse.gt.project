@@ -1,8 +1,10 @@
 extends Area
 
-signal coin_bronze_collected
+
+signal coin_collected(name)
 
 
 func _on_CoinBronze_body_entered(body):
-	emit_signal("coin_bronze_collected")
-	queue_free()
+	if body is KinematicBody:
+		queue_free()
+		emit_signal("coin_collected", name)

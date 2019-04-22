@@ -1,37 +1,71 @@
 extends Spatial
 
+var CoinBronze = preload("res://scenes/pickup/CoinBronze.tscn")
+var CoinSilver = preload("res://scenes/pickup/CoinSilver.tscn")
+var CoinGold = preload("res://scenes/pickup/CoinGold.tscn")
+
+
+var rnd_generator
+
+
+func random_position():
+	var x = rnd_generator.randf_range(-8, 8.01)
+	var z = rnd_generator.randf_range(-12.5, 12.51)
+	return Vector3(x, 0, z)
+
+
+func instanciate_coins(Coin, n):
+	var space_state = get_world().direct_space_state
+	var result
+	var i = 0
+	
+	while i < n:
+		# Ray casting from the sun, a better starting point may be find...
+		result = space_state.intersect_ray(get_node("DirectionalLight").transform.origin, random_position())
+		
+		if len(result) > 0 and rad2deg(result.normal.angle_to(Vector3.UP)) < 45:
+			var coin = Coin.instance()
+			
+			coin.transform.origin = result.position
+			coin.transform.origin.y += 0.25
+			
+			add_child(coin)
+			coin.connect("coin_collected", self, "increase_coin_collected")
+			
+			i += 1
+
 
 func _ready():
 	# Load the minimap camera into its texture 
 	var texture : Texture = $Player/Minimap.get_texture()
 	$HUD/Minimap/TextureRect.set_texture(texture)
+
+	rnd_generator = RandomNumberGenerator.new()
+	rnd_generator.randomize()
 	
-	for coin in $Platforms/Pickup/CoinBronze.get_children():
-		coin.connect("coin_bronze_collected", self, "increase_coin_bronze")
+	instanciate_coins(CoinBronze, 10)
+	instanciate_coins(CoinSilver, 10)
+	instanciate_coins(CoinGold, 10)
 
-	for coin in $Platforms/Pickup/CoinSilver.get_children():
-		coin.connect("coin_silver_collected", self, "increase_coin_silver")
 
-	for coin in $Platforms/Pickup/CoinGold.get_children():
-		coin.connect("coin_gold_collected", self, "increase_coin_gold")
-
-	for spike in $Platforms/Spikes.get_children():
+	for spike in $Spikes.get_children():
 		spike.connect("damage_inflicted", self, "decrease_hp")
 
 
 # Handle signals
 
-func increase_coin_bronze():
-	var value = int($HUD/HBoxCoin/LabelCoinBronze.get_text())
-	$HUD/HBoxCoin/LabelCoinBronze.set_text(str(value + 1))
-
-func increase_coin_silver():
-	var value = int($HUD/HBoxCoin/LabelCoinSilver.get_text())
-	$HUD/HBoxCoin/LabelCoinSilver.set_text(str(value + 1))
+func increase_coin_collected(name):
+	var label
+	if name.match("*Gold*"):
+		label = $HUD/HBoxCoin/LabelCoinGold
+	elif name.match("*Silver*"):
+		label = $HUD/HBoxCoin/LabelCoinSilver
+	else:
+		label = $HUD/HBoxCoin/LabelCoinBronze
 	
-func increase_coin_gold():
-	var value = int($HUD/HBoxCoin/LabelCoinGold.get_text())
-	$HUD/HBoxCoin/LabelCoinGold.set_text(str(value + 1))
+	var value = int(label.get_text())
+	label.set_text(str(value + 1))
+
 
 func decrease_hp():
 	$HUD/HBoxHP.get_child(0).queue_free()
