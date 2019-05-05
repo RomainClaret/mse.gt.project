@@ -18,13 +18,20 @@ var direction : Vector3
 var can_move = true
 var camera : Camera
 
-slave var slave_position = Vector3()
 slave var slave_movement = Vector3()
+slave var slave_transform = Transform()
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	camera = $CameraFirst
 
+	camera = $CameraFirst
+	
+	if !is_network_master():
+		$CameraFirst.queue_free()
+		$CameraThird.queue_free()
+	else:
+		camera.set_current(true)
 
 func get_input():
 	if can_move:	
@@ -79,17 +86,17 @@ func _physics_process(delta):
 		
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
-	
-		rset_unreliable('slave_position', transform.origin)
-		rset('slave_movement', velocity)
 		
+		rset_unreliable('slave_transform', transform)
+		rset('slave_movement', velocity)
+
 		velocity = move_and_slide(velocity, Vector3.UP, false, 4, deg2rad(MAX_SLOPE_ANGLE))
 		
 		$Minimap/Camera.transform.origin.x = transform.origin.x
 		$Minimap/Camera.transform.origin.z = transform.origin.z
 	else:
 		velocity = move_and_slide(slave_movement, Vector3.UP, false, 4, deg2rad(MAX_SLOPE_ANGLE))
-		transform.origin = slave_position
+		transform = slave_transform
 
 	if get_tree().is_network_server():
 		Network.update_position(int(name), transform.origin)
@@ -97,6 +104,7 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event):
+	if is_network_master():
 		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			if $CameraFirst.is_current():
 				if event.relative.y != 0:
@@ -110,7 +118,6 @@ func _unhandled_input(event):
 				$Minimap/Camera.rotate_y(-lerp(0, SPIN, event.relative.x / 10))
 	
 		if event.is_action_pressed("shoot"):
-			if is_network_master():
 				rpc('_shoot')
 		
 		if event.is_action_pressed("camera_switch"):

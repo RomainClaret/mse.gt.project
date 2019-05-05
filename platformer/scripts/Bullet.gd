@@ -8,13 +8,14 @@ var previous_velocity= Vector3()
 
 
 func shoot(xform):
-	transform = xform
-	velocity = -transform.basis.z * SPEED
-	
+		transform = xform
+		velocity = -transform.basis.z * SPEED
+		
 
 func _process(delta):
 	if bullet_fly:
-		transform.origin += velocity * delta
+			transform.origin += velocity * delta
+
 
 func _on_Timer_timeout():
 	queue_free()

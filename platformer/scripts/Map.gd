@@ -53,9 +53,10 @@ func _ready():
 	rnd_generator = RandomNumberGenerator.new()
 	rnd_generator.randomize()
 	
-	instanciate_coins(CoinBronze, 10)
-	instanciate_coins(CoinSilver, 10)
-	instanciate_coins(CoinGold, 10)
+	if is_network_master():
+		instanciate_coins(CoinBronze, 10)
+		instanciate_coins(CoinSilver, 10)
+		instanciate_coins(CoinGold, 10)
 
 
 	for spike in $Spikes.get_children():
@@ -65,16 +66,17 @@ func _ready():
 # Handle signals
 
 func increase_coin_collected(name):
-	var label
-	if name.match("*Gold*"):
-		label = $HUD/HBoxCoin/LabelCoinGold
-	elif name.match("*Silver*"):
-		label = $HUD/HBoxCoin/LabelCoinSilver
-	else:
-		label = $HUD/HBoxCoin/LabelCoinBronze
-	
-	var value = int(label.get_text())
-	label.set_text(str(value + 1))
+	if is_network_master():
+		var label
+		if name.match("*Gold*"):
+			label = $HUD/HBoxCoin/LabelCoinGold
+		elif name.match("*Silver*"):
+			label = $HUD/HBoxCoin/LabelCoinSilver
+		else:
+			label = $HUD/HBoxCoin/LabelCoinBronze
+		
+		var value = int(label.get_text())
+		label.set_text(str(value + 1))
 
 
 func decrease_hp():
@@ -85,4 +87,4 @@ func _on_player_disconnected(id):
 	get_node(str(id)).queue_free()
 
 func _on_server_disconnected():
-	get_tree().change_scene('res://interface/Menu.tscn')
+	get_tree().change_scene('res://scenes/Loby.tscn')
