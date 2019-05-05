@@ -1,7 +1,7 @@
 extends Area
 
 
-var SPEED = 30
+var SPEED = 5
 var velocity = Vector3()
 var bullet_fly = true
 var previous_velocity= Vector3()
@@ -22,11 +22,13 @@ func _on_Timer_timeout():
 
 func _on_Bullet_body_entered(body):
 	if body is StaticBody:
-		get_node("Particles").show()
 		bullet_fly = false
+		get_node("Particles").show()
+		get_node("MeshInstance").hide()
+		
 		#velocity = -transform.basis.z * 0
 		#transform.origin -= previous_velocity
 		
-		yield(get_tree().create_timer(1.0), "timeout")
+		yield(get_tree().create_timer(0.25), "timeout")
 		queue_free()
 		
