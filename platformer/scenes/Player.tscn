@@ -57,3 +57,15 @@ projection = 1
 current = true
 size = 8.0
 
+[node name="MouseState" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MouseState"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Mouse visible... press [esc] to grab the mouse !"
+align = 1
+valign = 1
+

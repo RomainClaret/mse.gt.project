@@ -24,17 +24,16 @@ slave var slave_transform = Transform()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 	camera = $CameraFirst
 	
+	# slave don't need a camera
 	if !is_network_master():
 		$CameraFirst.queue_free()
 		$CameraThird.queue_free()
-	else:
-		camera.set_current(true)
+
 
 func get_input():
-	if can_move:	
+	if can_move:
 			direction = Vector3()
 			var input_movement_vector = Vector2()
 			
@@ -46,24 +45,26 @@ func get_input():
 				input_movement_vector.x += 1
 			if Input.is_action_pressed("strafe_left"):
 				input_movement_vector.x -= 1
-				
+
 			input_movement_vector = input_movement_vector.normalized()
-	
+
 			direction += transform.basis.x.normalized() * input_movement_vector.x
 			direction -= transform.basis.z.normalized() * input_movement_vector.y
 			
 			if Input.is_action_pressed("sprint"):
 				direction *= SPRINT_COEFF
-	
+
 			if Input.is_action_just_pressed("jump") and is_on_floor():
 				velocity.y = JUMP_SPEED
 
-
+	# show/hide the mouse with [esc]
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			$MouseState.hide()
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			$MouseState.show()
 
 
 func _physics_process(delta):
@@ -92,6 +93,7 @@ func _physics_process(delta):
 
 		velocity = move_and_slide(velocity, Vector3.UP, false, 4, deg2rad(MAX_SLOPE_ANGLE))
 		
+		# update the camera used for the minimap by matching the player's position
 		$Minimap/Camera.transform.origin.x = transform.origin.x
 		$Minimap/Camera.transform.origin.z = transform.origin.z
 	else:
@@ -102,9 +104,9 @@ func _physics_process(delta):
 		Network.update_position(int(name), transform.origin)
 
 
-
 func _unhandled_input(event):
 	if is_network_master():
+		# update camera and flashlight rotations
 		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			if $CameraFirst.is_current():
 				if event.relative.y != 0:
@@ -112,14 +114,18 @@ func _unhandled_input(event):
 					$CameraFirst.rotation_degrees.x = clamp($CameraFirst.rotation_degrees.x, -60, 60)
 					$FlashLight.rotate_x(-lerp(0, SPIN, event.relative.y / 10))
 					$FlashLight.rotation_degrees.x = clamp($CameraFirst.rotation_degrees.x, -60, 60)
-				
+			
+			# rotate the minimap
 			if event.relative.x != 0:
 				rotate_y(-lerp(0, SPIN, event.relative.x / 10))
 				$Minimap/Camera.rotate_y(-lerp(0, SPIN, event.relative.x / 10))
 	
 		if event.is_action_pressed("shoot"):
-				rpc('_shoot')
+			var xform = $Muzzle.global_transform
+			xform.basis = camera.global_transform.basis
+			rpc('_shoot', xform)
 		
+		# switch 1st / 3rd person
 		if event.is_action_pressed("camera_switch"):
 			if $CameraFirst.is_current():
 				camera = $CameraThird
@@ -128,13 +134,13 @@ func _unhandled_input(event):
 			camera.set_current(true)
 
 
-sync func _shoot():
+sync func _shoot(xform):
 	var bullet = Bullet.instance()
-	var xform = $Muzzle.global_transform
-	if camera == $CameraFirst:
-		xform.basis = camera.global_transform.basis
+	bullet.shooter = self # to avoid collision with the shooter
+	
 	bullet.shoot(xform)
 	get_parent().add_child(bullet)
+
 
 func take_damage():
 	velocity *= -1
