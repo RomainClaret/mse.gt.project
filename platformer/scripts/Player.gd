@@ -4,6 +4,10 @@ class_name Player
 
 var Bullet = preload("res://scenes/Bullet.tscn")
 
+
+signal damage_inflicted
+
+
 var GRAVITY = -12
 var ACCEL = 8
 var SPEED = 4
@@ -146,6 +150,7 @@ func take_damage():
 	velocity *= -1
 	velocity.y = JUMP_SPEED
 	can_move = false
+	emit_signal("damage_inflicted")
 	yield(get_tree().create_timer(1), "timeout")
 	can_move = true
 

@@ -46,6 +46,8 @@ func _ready():
 	var info = Network.self_data
 	new_player.init(info.name, info.position, false)
 	
+	new_player.connect("damage_inflicted", self, "decrease_hp")
+	
 	# Load the minimap camera into its texture 
 	var texture : Texture = new_player.get_minimap_texture()
 	$HUD/Minimap/TextureRect.set_texture(texture)
@@ -80,7 +82,10 @@ func increase_coin_collected(name):
 
 
 func decrease_hp():
-	$HUD/HBoxHP.get_child(0).queue_free()
+	if $HUD/HBoxHP.get_child_count() > 0:
+		$HUD/HBoxHP.get_child(0).queue_free()
+	else:
+		print('You loose !!!')
 
 
 func _on_player_disconnected(id):

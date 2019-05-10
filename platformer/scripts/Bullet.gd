@@ -28,5 +28,8 @@ func _on_Bullet_body_entered(body):
 		get_node("Particles").show()
 		get_node("MeshInstance").hide()
 
+		if body.has_method("take_damage"):
+			body.take_damage()
+
 		yield(get_tree().create_timer(0.25), "timeout")
 		queue_free()

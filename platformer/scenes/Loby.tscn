@@ -52,7 +52,6 @@ margin_right = 254.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 125, 28 )
 text = "Create"
-
 [connection signal="text_changed" from="VBoxContainer/HBoxContainer2/TextEdit" to="." method="_on_TextEdit_text_changed" binds= [ "new_text" ]]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/JoinButton" to="." method="_on_JoinButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/CreateButton" to="." method="_on_CreateButton_pressed"]
