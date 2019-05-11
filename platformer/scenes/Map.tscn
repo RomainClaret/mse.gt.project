@@ -117,7 +117,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 [node name="BlockDirt81" parent="Platforms/Spawn1" instance=ExtResource( 2 )]
 
 [node name="Spawn4" type="Spatial" parent="Platforms"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -3.5 )
 
 [node name="BlockDirt82" parent="Platforms/Spawn4" instance=ExtResource( 2 )]
@@ -318,7 +317,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.19209e-07 )
 [node name="BlockDirt81" parent="Platforms/Spawn3" instance=ExtResource( 2 )]
 
 [node name="TowerLift1" type="Spatial" parent="Platforms"]
-editor/display_folded = true
 
 [node name="Lift" parent="Platforms/TowerLift1" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.5, 1, -4.5 )

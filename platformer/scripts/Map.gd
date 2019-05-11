@@ -82,14 +82,21 @@ func increase_coin_collected(name):
 
 
 func decrease_hp():
-	if $HUD/HBoxHP.get_child_count() > 0:
+	var life = $HUD/HBoxHP.get_child_count()
+	if life > 0:
 		$HUD/HBoxHP.get_child(0).queue_free()
 	else:
-		print('You loose !!!')
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().set_network_peer(null)
+		SceneSwitcher.change_scene('res://scenes/Loby.tscn', {"caption": "You loose !!!"})
 
 
 func _on_player_disconnected(id):
 	get_node(str(id)).queue_free()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	SceneSwitcher.change_scene('res://scenes/Loby.tscn', {"caption": "You win !!!"})
+	
 
 func _on_server_disconnected():
-	get_tree().change_scene('res://scenes/Loby.tscn')
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	SceneSwitcher.change_scene('res://scenes/Loby.tscn', {"caption": "You win !!!"})

@@ -14,7 +14,7 @@ var SPEED = 4
 var SPRINT_COEFF = 1.6
 var JUMP_SPEED = 4
 var SPIN = 0.05
-const MAX_SLOPE_ANGLE = 40
+const MAX_SLOPE_ANGLE = 30
 
 var velocity : Vector3
 var direction : Vector3

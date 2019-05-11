@@ -2,6 +2,13 @@ extends Control
 
 var _player_name = ""
 
+
+func _ready():
+	var caption = SceneSwitcher.get_param("caption")
+	if caption != null:
+		$VBoxContainer/WinLooseLabel.set_text(caption)
+
+
 func _on_TextEdit_text_changed(new_text):
 	_player_name = new_text
 
