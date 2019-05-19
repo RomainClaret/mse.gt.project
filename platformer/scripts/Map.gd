@@ -4,8 +4,15 @@ var CoinBronze = preload("res://scenes/pickup/CoinBronze.tscn")
 var CoinSilver = preload("res://scenes/pickup/CoinSilver.tscn")
 var CoinGold = preload("res://scenes/pickup/CoinGold.tscn")
 
+var new_player
 
 var rnd_generator
+
+var coins = [ ]
+slave var slave_coins = [ ]
+
+remote func get_coins(request_from_id, master_coins):
+	print('master: returning coins')
 
 
 func random_position():
@@ -22,16 +29,18 @@ func instanciate_coins(Coin, n):
 	while i < n:
 		# Ray casting from the sun, a better starting point may be find...
 		result = space_state.intersect_ray(get_node("DirectionalLight").transform.origin, random_position())
-		
+
 		if len(result) > 0 and rad2deg(result.normal.angle_to(Vector3.UP)) < 45:
 			var coin = Coin.instance()
-			
+
 			coin.transform.origin = result.position
 			coin.transform.origin.y += 0.25
 			
-			add_child(coin)
 			coin.connect("coin_collected", self, "increase_coin_collected")
+			add_child(coin)
 			
+			Network.coins[coin.name] = coin.transform.origin
+
 			i += 1
 
 
@@ -39,7 +48,7 @@ func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
 	get_tree().connect('server_disconnected', self, '_on_server_disconnected')
 	
-	var new_player = preload('res://scenes/Player.tscn').instance()
+	new_player = preload('res://scenes/Player.tscn').instance()
 	new_player.name = str(get_tree().get_network_unique_id())
 	new_player.set_network_master(get_tree().get_network_unique_id())
 	add_child(new_player)
@@ -60,19 +69,18 @@ func _ready():
 		instanciate_coins(CoinSilver, 10)
 		instanciate_coins(CoinGold, 10)
 
-
 	for spike in $Spikes.get_children():
 		spike.connect("damage_inflicted", self, "decrease_hp")
 
 
 # Handle signals
 
-func increase_coin_collected(name):
-	if is_network_master():
+func increase_coin_collected(taker_name, coin_name):
+	if taker_name == new_player.name:
 		var label
-		if name.match("*Gold*"):
+		if coin_name.match("*Gold*"):
 			label = $HUD/HBoxCoin/LabelCoinGold
-		elif name.match("*Silver*"):
+		elif coin_name.match("*Silver*"):
 			label = $HUD/HBoxCoin/LabelCoinSilver
 		else:
 			label = $HUD/HBoxCoin/LabelCoinBronze

@@ -14,7 +14,9 @@ points = PoolVector3Array( 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
 [sub_resource type="PrismMesh" id=4]
 size = Vector3( 0.5, 0.5, 0.1 )
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=[
+"Player",
+]]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 5
@@ -68,4 +70,3 @@ anchor_bottom = 1.0
 text = "Mouse visible... press [esc] to grab the mouse !"
 align = 1
 valign = 1
-

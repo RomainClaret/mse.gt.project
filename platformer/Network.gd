@@ -1,11 +1,17 @@
 extends Node
 
+var CoinBronze = preload("res://scenes/pickup/CoinBronze.tscn")
+var CoinSilver = preload("res://scenes/pickup/CoinSilver.tscn")
+var CoinGold = preload("res://scenes/pickup/CoinGold.tscn")
+
 const DEFAULT_IP = '127.0.0.1'
 const DEFAULT_PORT = 31400
 const MAX_PLAYERS = 5
 
 var players = { }
 var self_data = { name = '', position = Vector3(-9.5, 0.5, -0.5) }
+
+var coins = { }
 
 signal player_disconnected
 signal server_disconnected
@@ -31,7 +37,7 @@ func connect_to_server(player_nickname):
 func _connected_to_server():
 	var local_player_id = get_tree().get_network_unique_id()
 	players[local_player_id] = self_data
-	rpc('_send_player_info', local_player_id, self_data)
+	rpc('_send_player_info', local_player_id, self_data, coins)
 
 func _on_player_disconnected(id):
 	players.erase(id)
@@ -41,24 +47,42 @@ func _on_player_connected(connected_player_id):
 	if not(get_tree().is_network_server()):
 		rpc_id(1, '_request_player_info', local_player_id, connected_player_id)
 
+
 remote func _request_player_info(request_from_id, player_id):
 	if get_tree().is_network_server():
-		rpc_id(request_from_id, '_send_player_info', player_id, players[player_id])
+		rpc_id(request_from_id, '_send_player_info', player_id, players[player_id], coins)
+
 
 # A function to be used if needed. The purpose is to request all players in the current session.
 remote func _request_players(request_from_id):
 	if get_tree().is_network_server():
 		for peer_id in players:
 			if( peer_id != request_from_id):
-				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id])
+				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id], coins)
 
-remote func _send_player_info(id, info):
+remote func _send_player_info(id, info, coins):
 	players[id] = info
 	var new_player = load('res://scenes/Player.tscn').instance()
 	new_player.name = str(id)
 	new_player.set_network_master(id)
 	$'/root/Map/'.add_child(new_player)
 	new_player.init(info.name, info.position, true)
+	
+	if not(get_tree().is_network_server()):
+		self.coins = coins
+	
+		for coin in coins:
+			var new_coin
+			if coin.match("*Gold*"):
+				new_coin = CoinGold.instance()
+			elif coin.match("*Silver*"):
+				 new_coin = CoinSilver.instance()
+			else:
+				new_coin = CoinBronze.instance()
+	
+			new_coin.transform.origin = coins[coin]
+			new_coin.connect("coin_collected", $'/root/Map', "increase_coin_collected")
+			$'/root/Map'.add_child(new_coin)
 
 func update_position(id, position):
 	players[id].position = position
