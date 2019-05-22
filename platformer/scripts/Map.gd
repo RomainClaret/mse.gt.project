@@ -71,6 +71,24 @@ func _ready():
 
 	for spike in $Spikes.get_children():
 		spike.connect("damage_inflicted", self, "decrease_hp")
+		
+	$"HUD/HBoxContainer/VBoxContainer2/PlayerName".text = info.name
+	$"HUD/HBoxContainer/VBoxContainer2/PlayerScore".text = str(info.score)
+	$"HUD/HBoxContainer/VBoxContainer2/HBoxContainer/TimeLeft".text = str(Network.game_time)
+	set_game_status(info.gamestatus)
+	
+func set_game_status(status):
+	if status == 0:
+		$"HUD/HBoxContainer/VBoxContainer2/GameStatus".text = "Not connected to server"
+	elif status == 1:
+		$"HUD/HBoxContainer/VBoxContainer2/GameStatus".text = "Waiting"
+	elif status == 2:
+		$"HUD/HBoxContainer/VBoxContainer2/GameStatus".text = "Playing"
+	elif status == 3:
+		$"HUD/HBoxContainer/VBoxContainer2/GameStatus".text = "Finished"
+	else:
+		$"HUD/HBoxContainer/VBoxContainer2/GameStatus".text = "Unknown Error: "+str(status)
+	
 
 
 # Handle signals

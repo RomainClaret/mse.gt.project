@@ -1,28 +1,29 @@
 extends Control
 
-var _player_name = ""
-
+onready var player_name = get_node("VBoxContainer/HBoxContainer/VBoxContainer2/PseudoTextEdit")
+onready var game_minutes_label = get_node("VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/HBoxContainer/MinutesLabel")
+onready var game_minutes_slider = get_node("VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/MinutesHSlider")
 
 func _ready():
 	var caption = SceneSwitcher.get_param("caption")
 	if caption != null:
 		$VBoxContainer/WinLooseLabel.set_text(caption)
-
-
-func _on_TextEdit_text_changed(new_text):
-	_player_name = new_text
+	game_minutes_label.text = str(game_minutes_slider.value)
 
 func _on_CreateButton_pressed():
-	if _player_name == "":
+	if player_name.text == "":
 		return
-	Network.create_server(_player_name)
+	Network.create_server(player_name.text, game_minutes_slider.value)
 	_load_game()
 
 func _on_JoinButton_pressed():
-	if _player_name == "":
+	if player_name.text == "":
 		return
-	Network.connect_to_server(_player_name)
+	Network.connect_to_server(player_name.text)
 	_load_game()
 
 func _load_game():
 	get_tree().change_scene('res://scenes/Map.tscn')
+
+func _on_HSlider_value_changed(value):
+	game_minutes_label.text = str(value)

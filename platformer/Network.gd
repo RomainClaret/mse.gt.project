@@ -9,7 +9,9 @@ const DEFAULT_PORT = 31400
 const MAX_PLAYERS = 5
 
 var players = { }
-var self_data = { name = '', position = Vector3(-9.5, 0.5, -0.5) }
+var self_data = { name = '', position = Vector3(-9.5, 0.5, -0.5), score=0, player_status=0}
+var game_time = 0
+var game_status = 1
 
 var coins = { }
 
@@ -20,12 +22,15 @@ func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
 	get_tree().connect('network_peer_connected', self, '_on_player_connected')
 
-func create_server(player_nickname):
+func create_server(player_nickname, game_time_minutes):
+	game_time = game_time_minutes*60
 	self_data.name = player_nickname
+	self_data.gamestatus = game_status
 	players[1] = self_data
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(DEFAULT_PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(peer)
+	
 
 func connect_to_server(player_nickname):
 	self_data.name = player_nickname
@@ -33,12 +38,14 @@ func connect_to_server(player_nickname):
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(DEFAULT_IP, DEFAULT_PORT)
 	get_tree().set_network_peer(peer)
-
+	
+	
 func _connected_to_server():
 	var local_player_id = get_tree().get_network_unique_id()
 	players[local_player_id] = self_data
-	rpc('_send_player_info', local_player_id, self_data, coins)
-
+	rpc('_send_player_info', local_player_id, self_data, coins, game_time, game_status)
+	
+	
 func _on_player_disconnected(id):
 	players.erase(id)
 
@@ -60,7 +67,10 @@ remote func _request_players(request_from_id):
 			if( peer_id != request_from_id):
 				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id], coins)
 
-remote func _send_player_info(id, info, coins):
+remote func _send_player_info(id, info, coins, game_time, game_status):
+	print(game_time)
+	print(game_status)
+	
 	players[id] = info
 	var new_player = load('res://scenes/Player.tscn').instance()
 	new_player.name = str(id)
