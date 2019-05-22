@@ -35,18 +35,25 @@ func create_server(player_nickname, game_time_minutes):
 	
 func start_game():
 	game_status = 2
-	$'/root/Map/'.set_game_status(game_status)
 	rpc("update_game_status", game_status)
-	game_time = 6
+	#game_time = 2
 	for i in range(game_time):
 		yield(get_tree().create_timer(game_time_inc), "timeout")
 		game_time -= game_time_inc
-		$'/root/Map/'.set_game_time(game_time)
 		rpc("update_time", game_time)
 
 	game_status = 3
-	$'/root/Map/'.set_game_status(game_status)
 	rpc("update_game_status", game_status)
+	
+	var best_player_id = 1
+	for player_id in players:
+		if players[player_id].score > players[best_player_id].score:
+			rpc_id(best_player_id, "end_game", false, players[best_player_id].score)
+			best_player_id = player_id
+		else:
+			rpc_id(player_id, "end_game", false, players[player_id].score)
+	
+	rpc_id(best_player_id, "end_game", true, players[best_player_id].score)
 	
 
 func connect_to_server(player_nickname):
@@ -94,13 +101,9 @@ remote func _request_players(request_from_id):
 				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id], coins, game_status, game_time)
 
 remote func _send_player_info(id, info, coins, game_status, game_time):
-	#print(game_status)
-	#print(game_time)
-	
 	if not(get_tree().is_network_server()):
 		$'/root/Map/'.set_game_status(game_status)
 		$'/root/Map/'.set_game_time(game_time)
-	
 	
 	players[id] = info
 	var new_player = load('res://scenes/Player.tscn').instance()
@@ -108,9 +111,6 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 	new_player.set_network_master(id)
 	$'/root/Map/'.add_child(new_player)
 	new_player.init(info.name, info.position, true)
-	
-	
-	#$'/root/Map/'.set_game_status(3)
 	
 	if not(get_tree().is_network_server()):
 		self.coins = coins
@@ -131,8 +131,16 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 func update_position(id, position):
 	players[id].position = position
 
-remote func update_time(time):
-	$'/root/Map/'.set_game_time(time)
+sync func update_time(time):
+	if $'/root/Map/' == Spatial:
+		$'/root/Map/'.set_game_time(time)
 	
-remote func update_game_status(status):
-	$'/root/Map/'.set_game_status(status)
+sync func update_game_status(status):
+	if $'/root/Map/' == Spatial:
+		$'/root/Map/'.set_game_status(status)
+	
+sync func end_game(win, score):
+	if win:
+		SceneSwitcher.change_scene('res://scenes/Loby.tscn', {"caption": "You Win !!! with a score of: "+str(score)})
+	else:
+		SceneSwitcher.change_scene('res://scenes/Loby.tscn', {"caption": "You loose !!! with a score of: "+str(score)})
