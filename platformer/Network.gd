@@ -12,6 +12,7 @@ var players = { }
 var self_data = { name = '', position = Vector3(-9.5, 0.5, -0.5), score=0, player_status=0}
 var game_time = 0
 var game_status = 0
+var game_time_inc = 1
 
 var coins = { }
 
@@ -32,6 +33,21 @@ func create_server(player_nickname, game_time_minutes):
 	peer.create_server(DEFAULT_PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(peer)
 	
+func start_game():
+	game_status = 2
+	$'/root/Map/'.set_game_status(game_status)
+	rpc("update_game_status", game_status)
+	game_time = 6
+	for i in range(game_time):
+		yield(get_tree().create_timer(game_time_inc), "timeout")
+		game_time -= game_time_inc
+		$'/root/Map/'.set_game_time(game_time)
+		rpc("update_time", game_time)
+
+	game_status = 3
+	$'/root/Map/'.set_game_status(game_status)
+	rpc("update_game_status", game_status)
+	
 
 func connect_to_server(player_nickname):
 	self_data.name = player_nickname
@@ -47,8 +63,7 @@ func _connected_to_server():
 	players[local_player_id] = self_data
 	rpc('_send_player_info', local_player_id, self_data, coins, game_status, game_time)
 	
-	
-	
+
 func _on_player_disconnected(id):
 	players.erase(id)
 
@@ -56,13 +71,13 @@ func _on_player_connected(connected_player_id):
 	#if game_status == 0: game_status=1
 	var local_player_id = get_tree().get_network_unique_id()
 	
-	if get_tree().is_network_server():
-		rpc("get_game_time", game_time)
+	#if get_tree().is_network_server():
+	start_game()
 	
 	if not(get_tree().is_network_server()):
 		rpc_id(1, '_request_player_info', local_player_id, connected_player_id)
 
-master func set_game_time(time):
+func set_game_time(time):
 	game_time = time
 	
 
@@ -82,8 +97,9 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 	#print(game_status)
 	#print(game_time)
 	
-	$'/root/Map/'.set_game_status(game_status)
-	$'/root/Map/'.set_game_time(game_time)
+	if not(get_tree().is_network_server()):
+		$'/root/Map/'.set_game_status(game_status)
+		$'/root/Map/'.set_game_time(game_time)
 	
 	
 	players[id] = info
@@ -114,3 +130,9 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 
 func update_position(id, position):
 	players[id].position = position
+
+remote func update_time(time):
+	$'/root/Map/'.set_game_time(time)
+	
+remote func update_game_status(status):
+	$'/root/Map/'.set_game_status(status)

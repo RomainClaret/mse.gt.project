@@ -65,7 +65,7 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 110, 16 )
 min_value = 1.0
 max_value = 20.0
-value = 5.0
+value = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
 margin_left = 114.0
