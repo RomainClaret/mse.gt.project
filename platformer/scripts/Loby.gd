@@ -12,13 +12,13 @@ func _ready():
 
 func _on_CreateButton_pressed():
 	if player_name.text == "":
-		return
+		player_name.text = "Server"
 	Network.create_server(player_name.text, game_minutes_slider.value)
 	_load_game()
 
 func _on_JoinButton_pressed():
 	if player_name.text == "":
-		return
+		player_name.text = "Client"
 	Network.connect_to_server(player_name.text)
 	_load_game()
 

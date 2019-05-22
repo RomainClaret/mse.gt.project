@@ -74,8 +74,11 @@ func _ready():
 		
 	$"HUD/HBoxContainer/VBoxContainer2/PlayerName".text = info.name
 	$"HUD/HBoxContainer/VBoxContainer2/PlayerScore".text = str(info.score)
-	$"HUD/HBoxContainer/VBoxContainer2/HBoxContainer/TimeLeft".text = str(Network.game_time)
-	set_game_status(info.gamestatus)
+	set_game_time(Network.game_time)
+	set_game_status(Network.game_status)
+
+func set_game_time(time):
+	$"HUD/HBoxContainer/VBoxContainer2/HBoxContainer/TimeLeft".text = str(time)
 	
 func set_game_status(status):
 	if status == 0:

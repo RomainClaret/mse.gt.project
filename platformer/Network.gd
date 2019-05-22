@@ -11,7 +11,7 @@ const MAX_PLAYERS = 5
 var players = { }
 var self_data = { name = '', position = Vector3(-9.5, 0.5, -0.5), score=0, player_status=0}
 var game_time = 0
-var game_status = 1
+var game_status = 0
 
 var coins = { }
 
@@ -23,7 +23,8 @@ func _ready():
 	get_tree().connect('network_peer_connected', self, '_on_player_connected')
 
 func create_server(player_nickname, game_time_minutes):
-	game_time = game_time_minutes*60
+	game_status = 1
+	set_game_time(game_time_minutes*60)
 	self_data.name = player_nickname
 	self_data.gamestatus = game_status
 	players[1] = self_data
@@ -42,22 +43,32 @@ func connect_to_server(player_nickname):
 	
 func _connected_to_server():
 	var local_player_id = get_tree().get_network_unique_id()
+	self_data.player_status = 1
 	players[local_player_id] = self_data
-	rpc('_send_player_info', local_player_id, self_data, coins, game_time, game_status)
+	rpc('_send_player_info', local_player_id, self_data, coins, game_status, game_time)
+	
 	
 	
 func _on_player_disconnected(id):
 	players.erase(id)
 
 func _on_player_connected(connected_player_id):
+	#if game_status == 0: game_status=1
 	var local_player_id = get_tree().get_network_unique_id()
+	
+	if get_tree().is_network_server():
+		rpc("get_game_time", game_time)
+	
 	if not(get_tree().is_network_server()):
 		rpc_id(1, '_request_player_info', local_player_id, connected_player_id)
 
+master func set_game_time(time):
+	game_time = time
+	
 
 remote func _request_player_info(request_from_id, player_id):
 	if get_tree().is_network_server():
-		rpc_id(request_from_id, '_send_player_info', player_id, players[player_id], coins)
+		rpc_id(request_from_id, '_send_player_info', player_id, players[player_id], coins, game_status, game_time)
 
 
 # A function to be used if needed. The purpose is to request all players in the current session.
@@ -65,11 +76,15 @@ remote func _request_players(request_from_id):
 	if get_tree().is_network_server():
 		for peer_id in players:
 			if( peer_id != request_from_id):
-				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id], coins)
+				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id], coins, game_status, game_time)
 
-remote func _send_player_info(id, info, coins, game_time, game_status):
-	print(game_time)
-	print(game_status)
+remote func _send_player_info(id, info, coins, game_status, game_time):
+	#print(game_status)
+	#print(game_time)
+	
+	$'/root/Map/'.set_game_status(game_status)
+	$'/root/Map/'.set_game_time(game_time)
+	
 	
 	players[id] = info
 	var new_player = load('res://scenes/Player.tscn').instance()
@@ -77,6 +92,9 @@ remote func _send_player_info(id, info, coins, game_time, game_status):
 	new_player.set_network_master(id)
 	$'/root/Map/'.add_child(new_player)
 	new_player.init(info.name, info.position, true)
+	
+	
+	#$'/root/Map/'.set_game_status(3)
 	
 	if not(get_tree().is_network_server()):
 		self.coins = coins
