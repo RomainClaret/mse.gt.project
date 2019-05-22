@@ -36,7 +36,7 @@ func create_server(player_nickname, game_time_minutes):
 func start_game():
 	game_status = 2
 	rpc("update_game_status", game_status)
-	#game_time = 2
+	game_time = 10
 	for i in range(game_time):
 		yield(get_tree().create_timer(game_time_inc), "timeout")
 		game_time -= game_time_inc
@@ -47,7 +47,9 @@ func start_game():
 	
 	var best_player_id = 1
 	for player_id in players:
-		if players[player_id].score > players[best_player_id].score:
+		print(players[player_id].score)
+		print(players[best_player_id].score)
+		if player_id != best_player_id and players[player_id].score > players[best_player_id].score:
 			rpc_id(best_player_id, "end_game", false, players[best_player_id].score)
 			best_player_id = player_id
 		else:
@@ -130,15 +132,18 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 
 func update_position(id, position):
 	players[id].position = position
+	
 
 sync func update_time(time):
-	if $'/root/Map/' == Spatial:
+	if not(get_node("/root/Map/") == null):
 		$'/root/Map/'.set_game_time(time)
+		
 	
 sync func update_game_status(status):
-	if $'/root/Map/' == Spatial:
+	if not(get_node("/root/Map/") == null):
 		$'/root/Map/'.set_game_status(status)
-	
+		
+		
 sync func end_game(win, score):
 	if win:
 		SceneSwitcher.change_scene('res://scenes/Loby.tscn', {"caption": "You Win !!! with a score of: "+str(score)})

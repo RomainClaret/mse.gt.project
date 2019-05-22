@@ -73,7 +73,7 @@ func _ready():
 		spike.connect("damage_inflicted", self, "decrease_hp")
 		
 	$"HUD/HBoxContainer/VBoxContainer2/PlayerName".text = info.name
-	$"HUD/HBoxContainer/VBoxContainer2/PlayerScore".text = str(info.score)
+	set_game_score(str(info.score))
 	set_game_time(Network.game_time)
 	set_game_status(Network.game_status)
 
@@ -92,6 +92,8 @@ func set_game_status(status):
 	else:
 		$"HUD/HBoxContainer/VBoxContainer2/GameStatus".text = "Unknown Error: "+str(status)
 	
+func set_game_score(score):
+	$"HUD/HBoxContainer/VBoxContainer2/PlayerScore".text = str(score)
 
 
 # Handle signals
@@ -99,15 +101,23 @@ func set_game_status(status):
 func increase_coin_collected(taker_name, coin_name):
 	if taker_name == new_player.name:
 		var label
+		var points = 0
 		if coin_name.match("*Gold*"):
 			label = $HUD/HBoxCoin/LabelCoinGold
+			points= 3
 		elif coin_name.match("*Silver*"):
 			label = $HUD/HBoxCoin/LabelCoinSilver
+			points = 2
 		else:
 			label = $HUD/HBoxCoin/LabelCoinBronze
+			points = 1
 		
 		var value = int(label.get_text())
 		label.set_text(str(value + 1))
+		
+		Network.self_data.score += points
+		set_game_score(Network.self_data.score)
+		
 
 
 func decrease_hp():

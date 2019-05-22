@@ -4,8 +4,9 @@ var _params = null
 
 
 func change_scene(next_scene, params=null):
-    _params = params
-    get_tree().change_scene(next_scene)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	_params = params
+	get_tree().change_scene(next_scene)
 
 
 func get_param(name):
