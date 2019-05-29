@@ -36,7 +36,10 @@ func create_server(player_nickname, game_time_minutes):
 func start_game():
 	game_status = 2
 	rpc("update_game_status", game_status)
-	game_time = 10
+	
+	#DEBUG
+	#hard coded timer for testing, comment out if needed
+	#game_time = 15
 	for i in range(game_time):
 		yield(get_tree().create_timer(game_time_inc), "timeout")
 		game_time -= game_time_inc
@@ -46,16 +49,22 @@ func start_game():
 	rpc("update_game_status", game_status)
 	
 	var best_player_id = 1
+	var draw_list = []
 	for player_id in players:
-		print(players[player_id].score)
-		print(players[best_player_id].score)
-		if player_id != best_player_id and players[player_id].score > players[best_player_id].score:
+		if (player_id != best_player_id) and (players[player_id].score > players[best_player_id].score):
 			rpc_id(best_player_id, "end_game", false, players[best_player_id].score)
 			best_player_id = player_id
+		elif (player_id != best_player_id) and (players[player_id].score == players[best_player_id].score):
+			draw_list.append([player_id,best_player_id])
 		else:
 			rpc_id(player_id, "end_game", false, players[player_id].score)
 	
-	rpc_id(best_player_id, "end_game", true, players[best_player_id].score)
+	if draw_list.empty():
+		rpc_id(best_player_id, "end_game", true, players[best_player_id].score)
+	else:
+		rpc_id(draw_list[-1][0], "end_game", true, players[draw_list[-1][0]].score)
+		rpc_id(draw_list[-1][1], "end_game", true, players[draw_list[-1][1]].score)
+		
 	
 
 func connect_to_server(player_nickname):
@@ -132,6 +141,12 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 
 func update_position(id, position):
 	players[id].position = position
+
+func update_score(id, score):
+	rpc("save_score",id,score)
+	
+master func save_score(id, score):
+	players[id].score = score
 	
 
 sync func update_time(time):
