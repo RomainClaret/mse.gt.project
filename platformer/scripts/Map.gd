@@ -73,7 +73,7 @@ func _ready():
 		spike.connect("damage_inflicted", self, "decrease_hp")
 		
 	$"HUD/HBoxContainer/VBoxContainer2/PlayerName".text = info.name
-	set_game_score(str(info.score))
+	set_game_score(int(info.score))
 	set_game_time(Network.game_time)
 	set_game_status(Network.game_status)
 
@@ -94,6 +94,9 @@ func set_game_status(status):
 	
 func set_game_score(score):
 	$"HUD/HBoxContainer/VBoxContainer2/PlayerScore".text = str(score)
+	#rpc("update_game_status", game_status)
+	if not not Network.players:
+		Network.update_score(Network.players.keys()[0],score)
 
 
 # Handle signals
