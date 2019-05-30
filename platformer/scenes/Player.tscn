@@ -135,7 +135,7 @@ size = Vector2( 150, 150 )
 render_target_v_flip = true
 
 [node name="Camera" type="Camera" parent="Minimap"]
-transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 17.25, 0 )
+transform = Transform( 1, 0, -4.37114e-08, 4.37114e-08, 1.91069e-15, 1, 0, -1, 1.91069e-15, 0, 17.25, 0 )
 projection = 1
 current = true
 size = 8.0

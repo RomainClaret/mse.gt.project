@@ -1,4 +1,4 @@
-extends Spatial
+extends Navigation
 
 var CoinBronze = preload("res://scenes/pickup/CoinBronze.tscn")
 var CoinSilver = preload("res://scenes/pickup/CoinSilver.tscn")
@@ -10,6 +10,7 @@ var rnd_generator
 
 var coins = [ ]
 slave var slave_coins = [ ]
+
 
 remote func get_coins(request_from_id, master_coins):
 	print('master: returning coins')
@@ -76,6 +77,13 @@ func _ready():
 	set_game_score(int(info.score))
 	set_game_time(Network.game_time)
 	set_game_status(Network.game_status)
+	
+	var p = get_simple_path(get_node("Monster").transform.origin, new_player.transform.origin)
+	var path = Array(p)
+	path.invert()
+	
+	print(path)
+
 
 func set_game_time(time):
 	$"HUD/HBoxContainer/VBoxContainer2/HBoxContainer/TimeLeft".text = str(time)
