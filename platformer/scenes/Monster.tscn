@@ -35,3 +35,6 @@ material/0 = null
 
 [node name="Muzzle" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26378, -1.25 )
+
+[node name="TimerShoot" type="Timer" parent="."]
+[connection signal="timeout" from="TimerShoot" to="." method="_on_TimerShoot_timeout"]

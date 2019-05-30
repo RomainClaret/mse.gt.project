@@ -43,7 +43,6 @@ wait_time = 0.01
 
 [node name="TimerDown" type="Timer" parent="."]
 wait_time = 0.01
-
 [connection signal="body_entered" from="Lever" to="." method="_on_Lever_body_entered"]
 [connection signal="body_exited" from="Lever" to="." method="_on_Lever_body_exited"]
 [connection signal="timeout" from="TimerUp" to="." method="_on_TimerUp_timeout"]

@@ -41,7 +41,6 @@ light_color = Color( 0.705882, 0.556863, 0.207843, 1 )
 shadow_enabled = true
 
 [node name="Path1" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 4.25 )
 
 [node name="Slope" type="Spatial" parent="Path1"]
@@ -389,17 +388,47 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, -0.5, -8.5 )
 [node name="BlockHalf123" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, -0.5, -9.5 )
 
+[node name="BlockHalf240" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, -0.5, -10.5 )
+
+[node name="BlockHalf255" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.25, -0.5, -11.5 )
+
 [node name="BlockHalf124" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.25, -0.5, -9.5 )
+
+[node name="BlockHalf243" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.25, -0.5, -10.5 )
+
+[node name="BlockHalf250" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.25, -0.5, -11.5 )
 
 [node name="BlockHalf125" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, -0.5, -9.5 )
 
+[node name="BlockHalf233" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, -0.5, -10.5 )
+
+[node name="BlockHalf247" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, -0.5, -11.5 )
+
 [node name="BlockHalf126" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.25, -0.5, -9.5 )
 
+[node name="BlockHalf239" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.25, -0.5, -10.5 )
+
+[node name="BlockHalf257" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.25, -0.5, -11.5 )
+
 [node name="BlockHalf127" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, -0.5, -9.5 )
+
+[node name="BlockHalf237" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, -0.5, -10.5 )
+
+[node name="BlockHalf253" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, -0.5, -11.5 )
 
 [node name="BlockHalf219" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, -0.5, -7.75 )
@@ -431,29 +460,95 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.25, -0.5, -5.75 )
 [node name="BlockHalf128" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, -0.5, -9.5 )
 
+[node name="BlockHalf241" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, -0.5, -10.5 )
+
+[node name="BlockHalf256" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, -0.5, -11.5 )
+
 [node name="BlockHalf129" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.25, -0.5, -9.5 )
+
+[node name="BlockHalf245" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.25, -0.5, -10.5 )
+
+[node name="BlockHalf252" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.25, -0.5, -11.5 )
 
 [node name="BlockHalf130" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, -0.5, -9.5 )
 
+[node name="BlockHalf236" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, -0.5, -10.5 )
+
+[node name="BlockHalf258" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, -0.5, -11.5 )
+
 [node name="BlockHalf131" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, -0.5, -9.5 )
+
+[node name="BlockHalf234" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, -0.5, -10.5 )
+
+[node name="BlockHalf254" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, -0.5, -11.5 )
 
 [node name="BlockHalf132" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, -0.5, -9.5 )
 
+[node name="BlockHalf235" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, -0.5, -10.5 )
+
+[node name="BlockHalf259" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, -0.5, -11.5 )
+
 [node name="BlockHalf133" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, -0.5, -9.5 )
+
+[node name="BlockHalf244" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, -0.5, -10.5 )
+
+[node name="BlockHalf251" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, -0.5, -11.5 )
 
 [node name="BlockHalf134" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, -0.5, -9.5 )
 
+[node name="BlockHalf242" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, -0.5, -10.5 )
+
+[node name="BlockHalf249" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, -0.5, -11.5 )
+
 [node name="BlockHalf135" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, -0.5, -9.5 )
 
+[node name="BlockHalf246" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, -0.5, -10.5 )
+
+[node name="BlockHalf260" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, -0.5, -11.5 )
+
 [node name="BlockHalf136" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, -0.5, -9.5 )
+
+[node name="BlockHalf238" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, -0.5, -10.5 )
+
+[node name="BlockHalf262" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, -0.5, -10.5 )
+
+[node name="BlockHalf264" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, -0.5, -10.5 )
+
+[node name="BlockHalf248" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, -0.5, -11.5 )
+
+[node name="BlockHalf261" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, -0.5, -11.5 )
+
+[node name="BlockHalf263" parent="Path1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, -0.5, -11.5 )
 
 [node name="BlockHalf137" parent="Path1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, -0.5, -9.5 )
@@ -2363,4 +2458,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 3, -10.5 )
 [node name="HUD" parent="." instance=ExtResource( 17 )]
 
 [node name="Monster" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.196618, 0, -0.0366272, 0, 0.2, 0, 0.0366272, 0, -0.196618, -6.41963, 1.00326, -2.25 )
+transform = Transform( -0.196618, 0, -0.0366272, 0, 0.2, 0, 0.0366272, 0, -0.196618, 0.330368, 0.00325608, -0.5 )

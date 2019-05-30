@@ -77,12 +77,6 @@ func _ready():
 	set_game_score(int(info.score))
 	set_game_time(Network.game_time)
 	set_game_status(Network.game_status)
-	
-	var p = get_simple_path(get_node("Monster").transform.origin, new_player.transform.origin)
-	var path = Array(p)
-	path.invert()
-	
-	print(path)
 
 
 func set_game_time(time):
