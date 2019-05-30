@@ -109,6 +109,7 @@ remote func _send_player_info(id, info, coins, game_status, game_time):
 	
 	players[id] = info
 	var new_player = load('res://scenes/Player.tscn').instance()
+	new_player.get_child(1).set_surface_material(0, new_player.color_ennemy)
 	new_player.name = str(id)
 	new_player.set_network_master(id)
 	$'/root/Map/'.add_child(new_player)

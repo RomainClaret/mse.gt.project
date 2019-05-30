@@ -25,6 +25,7 @@ var camera : Camera
 slave var slave_movement = Vector3()
 slave var slave_transform = Transform()
 
+export (Material) var color_ennemy
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -34,6 +35,8 @@ func _ready():
 	if !is_network_master():
 		$CameraFirst.queue_free()
 		$CameraThird.queue_free()
+	
+	
 
 
 func get_input():

@@ -102,7 +102,6 @@ margin_right = 254.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 125, 28 )
 text = "Create"
-
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/MinutesHSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/JoinButton" to="." method="_on_JoinButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/CreateButton" to="." method="_on_CreateButton_pressed"]
