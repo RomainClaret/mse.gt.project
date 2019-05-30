@@ -54,7 +54,10 @@ func _ready():
 	new_player.set_network_master(get_tree().get_network_unique_id())
 	add_child(new_player)
 	var info = Network.self_data
+	if !is_network_master():
+		info.position = Vector3(9.5, 0.5, -0.5)
 	new_player.init(info.name, info.position, false)
+	
 	
 	new_player.connect("damage_inflicted", self, "decrease_hp")
 	
